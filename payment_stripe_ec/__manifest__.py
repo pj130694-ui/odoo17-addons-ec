@@ -4,6 +4,8 @@
     'category': 'Accounting/Payment Providers',
     'summary': 'Allows Stripe to work with Ecuadorian company by mapping EC to US for Stripe Connect.',
     'depends': ['payment_stripe'],
+    'price': 19.99,
+    'currency': 'USD',
     'license': 'LGPL-3',
     'auto_install': False,
     'installable': True,
