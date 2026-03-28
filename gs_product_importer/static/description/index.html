@@ -1,77 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8"/>
+<head><meta charset="UTF-8"/>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #2d3748; background: #fff; }
-.hero { background: linear-gradient(135deg, #34a853 0%, #118530 100%); color: #fff; padding: 60px 40px; text-align: center; }
-.hero .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.hero { background: linear-gradient(135deg, #0f5132 0%, #157347 100%); color: #fff; padding: 60px 40px; text-align: center; }
+.badge { display: inline-block; background: rgba(255,255,255,0.18); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
 .hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
 .hero p { font-size: 17px; opacity: 0.92; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 .compat { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 14px 24px; margin: 24px 40px; font-size: 14px; color: #276749; }
+.alert { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 14px 24px; margin: 0 40px 20px; font-size: 14px; color: #856404; }
+.free { background: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 12px 24px; margin: 0 40px 20px; font-size: 15px; color: #155724; text-align: center; font-weight: 600; }
 .section { padding: 44px 40px; max-width: 900px; margin: 0 auto; }
-.section-title { font-size: 22px; font-weight: 700; color: #34a853; margin-bottom: 28px; text-align: center; }
-.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #34a853; }
-.feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
-.feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.st { font-size: 22px; font-weight: 700; color: #157347; margin-bottom: 28px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #157347; }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
+.card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .step { text-align: center; padding: 28px 16px; }
-.step-number { width: 46px; height: 46px; border-radius: 50%; background: #34a853; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.num { width: 46px; height: 46px; border-radius: 50%; background: #157347; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
 .step h3 { font-size: 14px; font-weight: 600; margin-bottom: 7px; }
 .step p { font-size: 13px; color: #4a5568; line-height: 1.5; }
-.divider { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
-.tags { text-align: center; padding: 28px 40px; }
-.tag { display: inline-block; background: #edf2ff; color: #34a853; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
-.footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
-.footer strong { color: #fff; }
-.footer a { color: #34a853; text-decoration: none; }
-</style>
-</head>
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
+.shots { padding: 40px; }
+.shots h2 { font-size: 22px; font-weight: 700; color: #157347; margin-bottom: 28px; text-align: center; }
+.shot { text-align: center; margin-bottom: 28px; }
+.shot img { width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+.shot p { color: #666; font-size: 13px; margin-top: 6px; }
+.tags { text-align: center; padding: 20px 40px 28px; }
+.tag { display: inline-block; background: #edf2ff; color: #157347; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
+footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
+footer strong { color: #fff; }
+footer a { color: #60a5fa; text-decoration: none; }
+</style></head>
 <body>
+<div style="text-align:center;background:#0f5132;padding:0;">
+  <img src="images/settings.png" alt="Google Sheet importar productos Odoo 17 sincronizacion catalogo automatica API Key Spreadsheet ID configuracion" style="width:100%;max-width:100%;display:block;"/>
+</div>
 <div class="hero">
-    <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
-    <h1>Google Sheets Product Importer</h1>
-    <p>Importa y actualiza productos en Odoo directamente desde una hoja de Google Sheets sin exportar archivos.</p>
-</div>
-<div class="compat">
-    <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
-</div>
-<div class="section">
-    <div class="section-title">&#10024; Funcionalidades principales</div>
-    <div class="features-grid"><div class="feature-card"><h3>📊 Importación desde Google Sheets</h3><p>Conecta tu hoja de cálculo de Google y sincroniza productos directamente sin descargar archivos CSV.</p></div><div class="feature-card"><h3>🔄 Actualización masiva</h3><p>Actualiza precios, descripciones, stock e imágenes de cientos de productos en segundos.</p></div><div class="feature-card"><h3>🖼️ Importación de imágenes</h3><p>Descarga e importa imágenes de productos desde URLs directamente en Odoo.</p></div><div class="feature-card"><h3>🗂️ Categorías y variantes</h3><p>Soporta categorías, variantes de producto y unidades de medida.</p></div><div class="feature-card"><h3>✅ Validación de datos</h3><p>Detecta errores en los datos antes de importar y muestra un reporte de resultados.</p></div><div class="feature-card"><h3>⚙️ Mapeo de columnas</h3><p>Configura qué columna de tu hoja corresponde a cada campo de Odoo.</p></div></div>
-</div>
-<hr class="divider"/>
-<div class="section">
-    <div class="section-title">&#128640; Cómo funciona</div>
-    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Conecta tu Google Sheet</h3><p>Ingresa la URL de tu hoja de Google Sheets y autoriza el acceso.</p></div><div class="step"><div class="step-number">2</div><h3>Mapea las columnas</h3><p>Indica qué columna corresponde a nombre, precio, SKU, imagen, etc.</p></div><div class="step"><div class="step-number">3</div><h3>Importa</h3><p>Haz clic en Importar — los productos se crean o actualizan automáticamente en Odoo.</p></div></div>
-</div>
-<hr class="divider"/>
-<div class="tags"><span class="tag">Google Sheets</span><span class="tag">Importación</span><span class="tag">Productos</span><span class="tag">Catálogo</span><span class="tag">eCommerce</span><span class="tag">Masivo</span></div>
-<div class="footer">
-    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
+  <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Google Sheets</div>
+  <h1>Google Sheet Product Importer &mdash; Sincroniza tu Catálogo con Odoo</h1>
+  <p>Importa y sincroniza productos, variantes y stock desde Google Sheets a Odoo 17 automáticamente. Crea, actualiza y archiva productos según tu hoja de cálculo &mdash; ideal para catálogos grandes gestionados en Google Sheets.</p>
 </div>
 
-    <!-- SCREENSHOTS -->
-    <section style="background:#fff;padding:48px 40px;">
-      <h2 style="text-align:center;font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:32px;">
-        Capturas de pantalla
-      </h2>
-      
-        <div style="text-align:center;">
-            <img src="images/settings.png" alt="Configuración de la integración con Google Sheets"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Configuración de la integración con Google Sheets</p>
-        </div>
-        <div style="text-align:center;">
-            <img src="images/products_list.png" alt="Productos importados automáticamente desde Google Sheets"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Productos importados automáticamente desde Google Sheets</p>
-        </div>
-    </section>
-    <!-- /SCREENSHOTS -->
-</body>
-</html>
+<div class="compat"><strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Requiere Google Sheets API Key &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong></div>
+<div class="section">
+  <div class="st">&#10024; Funcionalidades principales</div>
+  <div class="grid">
+<div class="card"><h3>&#128202; Importación desde Google Sheets</h3><p>Conecta cualquier Google Sheet público con Odoo usando tu API Key de Google Cloud. El módulo lee las filas y crea o actualiza los productos automáticamente sin código.</p></div>
+<div class="card"><h3>&#128260; Sincronización con archivado automático</h3><p>Si un producto desaparece de la hoja, el módulo lo archiva en Odoo (active=False). Si reaparece, lo reactiva. Nunca elimina registros &mdash; solo archiva.</p></div>
+<div class="card"><h3>&#128201; Variantes de producto</h3><p>Crea y gestiona variantes (talla, color, capacidad, etc.) desde columnas de la hoja. Compatible con el sistema de variantes nativo de Odoo.</p></div>
+<div class="card"><h3>&#128194; Categorías automáticas</h3><p>Crea la jerarquía completa de categorías desde la ruta en la hoja: 'Hardware / Servidores / HP' crea todos los niveles en Odoo si no existen.</p></div>
+<div class="card"><h3>&#8987; Cron de auto-importación</h3><p>Activa la importación automática programada para mantener tu catálogo Odoo siempre sincronizado con tu Google Sheet. Configura la frecuencia desde Ajustes.</p></div>
+<div class="card"><h3>&#128203; Log de importación detallado</h3><p>Registro completo de cada importación: productos creados, actualizados, archivados, categorías creadas y errores. Auditoría completa del proceso de sincronización.</p></div>
+  </div>
+</div>
+<hr/>
+<div class="section">
+  <div class="st">&#128640; Cómo funciona</div>
+  <div class="steps">
+<div class="step"><div class="num">1</div><h3>Configura el API</h3><p>En Ajustes &rarr; Google Sheet Import, ingresa tu Google Sheets API Key y el ID de tu spreadsheet. La hoja debe ser pública o compartida.</p></div>
+<div class="step"><div class="num">2</div><h3>Define el rango</h3><p>Especifica el rango de celdas (ej. Sheet1!A:U) que contiene tus productos. Cada fila es un producto o variante a sincronizar.</p></div>
+<div class="step"><div class="num">3</div><h3>Importa y sincroniza</h3><p>Clic en 'Run Import Now' o activa el cron automático. Tu catálogo Odoo se mantiene sincronizado con Google Sheets automáticamente.</p></div>
+  </div>
+</div>
+<hr/>
+<div class="shots">
+  <h2>Capturas de pantalla</h2>
+<div class="shot"><img src="images/settings.png" alt="Configuracion Google Sheets importador productos Odoo 17 API Key Spreadsheet ID sincronizacion"/><p>Configuración en Ajustes &mdash; API Key de Google, Spreadsheet ID, rango de celdas y opciones de sincronización automática</p></div>
+<div class="shot"><img src="images/products_list.png" alt="Lista productos Odoo 17 importados Google Sheets sincronizados automaticamente catalogo"/><p>Lista de productos en Odoo 17 &mdash; importados y sincronizados automáticamente desde Google Sheets sin código</p></div>
+</div>
+<div class="tags"><span class="tag">Google Sheets</span><span class="tag">Importar productos</span><span class="tag">Sincronización catálogo</span><span class="tag">Odoo 17</span><span class="tag">Variantes producto</span><span class="tag">Auto-importación</span><span class="tag">Google Sheets Odoo</span><span class="tag">Catálogo productos</span><span class="tag">Inventario automático</span><span class="tag">Google Sheets API</span></div>
+<footer>Desarrollado por <strong>PJFlow.io</strong> &mdash; <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0</footer>
+</body></html>

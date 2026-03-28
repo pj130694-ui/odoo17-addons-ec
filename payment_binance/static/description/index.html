@@ -1,77 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8"/>
+<head><meta charset="UTF-8"/>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #2d3748; background: #fff; }
-.hero { background: linear-gradient(135deg, #f3a429 0%, #c67700 100%); color: #fff; padding: 60px 40px; text-align: center; }
-.hero .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.hero { background: linear-gradient(135deg, #f0b90b 0%, #d48a00 100%); color: #1a1a1a; padding: 60px 40px; text-align: center; }
+.badge { display: inline-block; background: rgba(0,0,0,0.18); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
 .hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
 .hero p { font-size: 17px; opacity: 0.92; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 .compat { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 14px 24px; margin: 24px 40px; font-size: 14px; color: #276749; }
+.alert { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 14px 24px; margin: 0 40px 20px; font-size: 14px; color: #856404; }
+.free { background: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 12px 24px; margin: 0 40px 20px; font-size: 15px; color: #155724; text-align: center; font-weight: 600; }
 .section { padding: 44px 40px; max-width: 900px; margin: 0 auto; }
-.section-title { font-size: 22px; font-weight: 700; color: #f3a429; margin-bottom: 28px; text-align: center; }
-.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #f3a429; }
-.feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
-.feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.st { font-size: 22px; font-weight: 700; color: #c87f0a; margin-bottom: 28px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #c87f0a; }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
+.card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .step { text-align: center; padding: 28px 16px; }
-.step-number { width: 46px; height: 46px; border-radius: 50%; background: #f3a429; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.num { width: 46px; height: 46px; border-radius: 50%; background: #c87f0a; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
 .step h3 { font-size: 14px; font-weight: 600; margin-bottom: 7px; }
 .step p { font-size: 13px; color: #4a5568; line-height: 1.5; }
-.divider { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
-.tags { text-align: center; padding: 28px 40px; }
-.tag { display: inline-block; background: #edf2ff; color: #f3a429; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
-.footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
-.footer strong { color: #fff; }
-.footer a { color: #f3a429; text-decoration: none; }
-</style>
-</head>
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
+.shots { padding: 40px; }
+.shots h2 { font-size: 22px; font-weight: 700; color: #c87f0a; margin-bottom: 28px; text-align: center; }
+.shot { text-align: center; margin-bottom: 28px; }
+.shot img { width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+.shot p { color: #666; font-size: 13px; margin-top: 6px; }
+.tags { text-align: center; padding: 20px 40px 28px; }
+.tag { display: inline-block; background: #edf2ff; color: #c87f0a; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
+footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
+footer strong { color: #fff; }
+footer a { color: #60a5fa; text-decoration: none; }
+</style></head>
 <body>
+<div style="text-align:center;background:#f0b90b;padding:0;">
+  <img src="images/providers_list.png" alt="Binance Pay proveedor pago Odoo 17 criptomonedas USDT BTC ETH Ecuador" style="width:100%;max-width:100%;display:block;"/>
+</div>
 <div class="hero">
-    <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
-    <h1>Binance Pay — Proveedor de Pago Crypto</h1>
-    <p>Acepta pagos en criptomonedas a través de Binance Pay directamente en tu tienda Odoo.</p>
-</div>
-<div class="compat">
-    <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
-</div>
-<div class="section">
-    <div class="section-title">&#10024; Funcionalidades principales</div>
-    <div class="features-grid"><div class="feature-card"><h3>💳 Integración nativa con Binance Pay</h3><p>Conecta tu cuenta Binance Merchant y empieza a recibir pagos cripto en minutos.</p></div><div class="feature-card"><h3>🔄 Confirmación automática</h3><p>Las órdenes se confirman automáticamente cuando el pago es procesado por Binance.</p></div><div class="feature-card"><h3>🌐 Multi-moneda</h3><p>Acepta USDT, BNB, BTC y todas las monedas soportadas por Binance Pay.</p></div><div class="feature-card"><h3>📊 Panel de transacciones</h3><p>Visualiza el historial de pagos directamente desde Odoo.</p></div><div class="feature-card"><h3>🔒 Webhooks seguros</h3><p>Verificación de firma HMAC para garantizar autenticidad de cada notificación.</p></div><div class="feature-card"><h3>⚡ Sin comisiones de red</h3><p>Binance Pay no cobra comisiones de red (gas fees) al pagador.</p></div></div>
-</div>
-<hr class="divider"/>
-<div class="section">
-    <div class="section-title">&#128640; Cómo funciona</div>
-    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Cuenta Binance Merchant</h3><p>Regístrate como comerciante en Binance y obtén tus credenciales API.</p></div><div class="step"><div class="step-number">2</div><h3>Configura el proveedor</h3><p>Ve a Contabilidad → Proveedores de pago → Binance Pay e ingresa tus claves.</p></div><div class="step"><div class="step-number">3</div><h3>Activa en tu tienda</h3><p>Habilita Binance Pay y tus clientes ya pueden pagar con cripto.</p></div></div>
-</div>
-<hr class="divider"/>
-<div class="tags"><span class="tag">Pagos</span><span class="tag">Crypto</span><span class="tag">Binance</span><span class="tag">eCommerce</span><span class="tag">USDT</span><span class="tag">Bitcoin</span></div>
-<div class="footer">
-    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
+  <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Binance Pay &#8383;</div>
+  <h1>Binance Pay — Acepta Criptomonedas en Odoo 17</h1>
+  <p>Integra Binance Pay en tu Odoo 17. Acepta USDT, BTC, ETH, BNB y más de 50 criptomonedas en tu tienda online y facturas de cliente. Cobros instantáneos sin intermediarios bancarios.</p>
 </div>
 
-    <!-- SCREENSHOTS -->
-    <section style="background:#fff;padding:48px 40px;">
-      <h2 style="text-align:center;font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:32px;">
-        Capturas de pantalla
-      </h2>
-      
-        <div style="text-align:center;">
-            <img src="images/providers_list.png" alt="Proveedores de pago disponibles en Odoo 17 (Binance Pay visible)"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Proveedores de pago disponibles en Odoo 17 (Binance Pay visible)</p>
-        </div>
-        <div style="text-align:center;">
-            <img src="images/binance_config.png" alt="Configuración del proveedor Binance Pay (API Key, Webhook, Moneda)"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Configuración del proveedor Binance Pay (API Key, Webhook, Moneda)</p>
-        </div>
-    </section>
-    <!-- /SCREENSHOTS -->
-</body>
-</html>
+<div class="compat"><strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Binance Pay API v2 &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong></div>
+<div class="section">
+  <div class="st">&#10024; Funcionalidades principales</div>
+  <div class="grid">
+<div class="card"><h3>&#8383; Más de 50 criptomonedas</h3><p>Acepta USDT, BTC, ETH, BNB, FDUSD y todas las monedas soportadas por Binance Pay. Tus clientes pagan con su wallet Binance, tú recibes en la moneda que prefieras.</p></div>
+<div class="card"><h3>&#128722; Integración con eCommerce Odoo</h3><p>El botón 'Pagar con Binance Pay' aparece automáticamente en el checkout de tu tienda online. Experiencia de compra fluida y profesional.</p></div>
+<div class="card"><h3>&#128196; Pago desde facturas de cliente</h3><p>Genera órdenes de pago Binance Pay directamente desde las facturas en Odoo. Ideal para cobros B2B en criptomonedas sin salir del ERP.</p></div>
+<div class="card"><h3>&#128260; Webhook automático de confirmación</h3><p>El pago se confirma automáticamente vía webhook de Binance Pay. La factura se marca como pagada de inmediato sin acción manual.</p></div>
+<div class="card"><h3>&#128178; Settlement en USDT, BTC, BNB o ETH</h3><p>Configura en qué moneda quieres recibir los fondos: USDT, USDC, BTC, BNB, ETH o FDUSD.</p></div>
+<div class="card"><h3>&#9989; Modo prueba y producción</h3><p>Prueba la integración en modo sandbox antes de activarla. Credenciales separadas para API Identity Key y API Secret Key de Binance Business.</p></div>
+  </div>
+</div>
+<hr/>
+<div class="section">
+  <div class="st">&#128640; Cómo funciona</div>
+  <div class="steps">
+<div class="step"><div class="num">1</div><h3>Configura las credenciales</h3><p>En Contabilidad &rarr; Proveedores de pago &rarr; Binance Pay, ingresa tu API Identity Key y API Secret Key de Binance Business.</p></div>
+<div class="step"><div class="num">2</div><h3>Activa el proveedor</h3><p>Cambia el estado a 'Activado' y registra el Webhook URL en tu panel de Binance Business para recibir confirmaciones de pago.</p></div>
+<div class="step"><div class="num">3</div><h3>Cobra en cripto</h3><p>Tus clientes ven el botón Binance Pay en el checkout o en la factura. Al pagar, la factura se confirma automáticamente.</p></div>
+  </div>
+</div>
+<hr/>
+<div class="shots">
+  <h2>Capturas de pantalla</h2>
+<div class="shot"><img src="images/providers_list.png" alt="Lista proveedores pago Odoo 17 con Binance Pay criptomonedas USDT Bitcoin Ethereum"/><p>Binance Pay en la lista de proveedores de pago de Odoo 17 &mdash; listo para activar junto a Stripe, PayPal y más</p></div>
+<div class="shot"><img src="images/binance_config.png" alt="Configuracion Binance Pay Odoo 17 API Key Settlement Currency Webhook criptomonedas"/><p>Configuración de Binance Pay &mdash; API Identity Key, Settlement Currency USDT y URL del Webhook automático</p></div>
+</div>
+<div class="tags"><span class="tag">Binance Pay</span><span class="tag">Criptomonedas</span><span class="tag">USDT</span><span class="tag">Bitcoin</span><span class="tag">Ethereum</span><span class="tag">Pago cripto Odoo</span><span class="tag">eCommerce Odoo</span><span class="tag">Odoo 17</span><span class="tag">Ecuador</span><span class="tag">Cobro criptomonedas</span><span class="tag">BNB</span><span class="tag">Binance Business</span></div>
+<footer>Desarrollado por <strong>PJFlow.io</strong> &mdash; <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0</footer>
+</body></html>

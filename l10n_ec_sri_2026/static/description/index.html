@@ -1,71 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8"/>
+<head><meta charset="UTF-8"/>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #2d3748; background: #fff; }
-.hero { background: linear-gradient(135deg, #dc3545 0%, #af0818 100%); color: #fff; padding: 60px 40px; text-align: center; }
-.hero .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.hero { background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 100%); color: #fff; padding: 60px 40px; text-align: center; }
+.badge { display: inline-block; background: rgba(255,255,255,0.18); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
 .hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
 .hero p { font-size: 17px; opacity: 0.92; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 .compat { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 14px 24px; margin: 24px 40px; font-size: 14px; color: #276749; }
+.alert { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 14px 24px; margin: 0 40px 20px; font-size: 14px; color: #856404; }
+.free { background: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 12px 24px; margin: 0 40px 20px; font-size: 15px; color: #155724; text-align: center; font-weight: 600; }
 .section { padding: 44px 40px; max-width: 900px; margin: 0 auto; }
-.section-title { font-size: 22px; font-weight: 700; color: #dc3545; margin-bottom: 28px; text-align: center; }
-.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #dc3545; }
-.feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
-.feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.st { font-size: 22px; font-weight: 700; color: #2563eb; margin-bottom: 28px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #2563eb; }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
+.card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .step { text-align: center; padding: 28px 16px; }
-.step-number { width: 46px; height: 46px; border-radius: 50%; background: #dc3545; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.num { width: 46px; height: 46px; border-radius: 50%; background: #2563eb; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
 .step h3 { font-size: 14px; font-weight: 600; margin-bottom: 7px; }
 .step p { font-size: 13px; color: #4a5568; line-height: 1.5; }
-.divider { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
-.tags { text-align: center; padding: 28px 40px; }
-.tag { display: inline-block; background: #edf2ff; color: #dc3545; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
-.footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
-.footer strong { color: #fff; }
-.footer a { color: #dc3545; text-decoration: none; }
-</style>
-</head>
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
+.shots { padding: 40px; }
+.shots h2 { font-size: 22px; font-weight: 700; color: #2563eb; margin-bottom: 28px; text-align: center; }
+.shot { text-align: center; margin-bottom: 28px; }
+.shot img { width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+.shot p { color: #666; font-size: 13px; margin-top: 6px; }
+.tags { text-align: center; padding: 20px 40px 28px; }
+.tag { display: inline-block; background: #edf2ff; color: #2563eb; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
+footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
+footer strong { color: #fff; }
+footer a { color: #60a5fa; text-decoration: none; }
+</style></head>
 <body>
+<div style="text-align:center;background:#1e3a5f;padding:0;">
+  <img src="images/chart_of_accounts.png" alt="Impuestos retencion IR Ecuador 2026 resolucion SRI NAC-DGERCGC26-00000009 Odoo 17 TRESCLOUD" style="width:100%;max-width:100%;display:block;"/>
+</div>
 <div class="hero">
-    <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
-    <h1>Ecuador SRI — Actualización Resolución 2026</h1>
-    <p>Actualización de tablas impositivas según la Resolución NAC-DGERCGC26-00000009 del SRI Ecuador.</p>
+  <div class="badge">PJFlow.io &middot; Odoo 17 &middot; SRI Ecuador 2026</div>
+  <h1>Parche Fiscal Ecuador 2026 &mdash; Resolución SRI NAC-DGERCGC26-00000009</h1>
+  <p>Actualiza automáticamente los impuestos de retención del Impuesto a la Renta según la resolución SRI vigente desde el 1 de marzo de 2026. Código 312 sube a 2% (bienes) y código 3440 a 3% (servicios).</p>
 </div>
-<div class="compat">
-    <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
-</div>
+<div class="alert"><strong>&#128197; Vigencia:</strong> Resolución NAC-DGERCGC26-00000009 vigente desde el <strong>01 de marzo de 2026</strong>. Reemplaza a NAC-DGERCGC24-00000008.</div>
+<div class="compat"><strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Requiere <strong>l10n_ec_edi</strong> (localización ecuatoriana Enterprise) &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong></div>
 <div class="section">
-    <div class="section-title">&#10024; Funcionalidades principales</div>
-    <div class="features-grid"><div class="feature-card"><h3>📋 Resolución NAC-DGERCGC26-00000009</h3><p>Aplica los cambios impositivos vigentes desde 2026 según resolución oficial del SRI.</p></div><div class="feature-card"><h3>🔄 Actualización de tablas</h3><p>Actualiza automáticamente las tablas de retenciones y porcentajes de IVA.</p></div><div class="feature-card"><h3>✅ Compatible con l10n_ec</h3><p>Funciona sobre la localización oficial de Ecuador para Odoo 17.</p></div><div class="feature-card"><h3>🚀 Instalación simple</h3><p>Solo instala el módulo — aplica los cambios sin configuración adicional.</p></div><div class="feature-card"><h3>📊 Sin pérdida de datos</h3><p>La actualización es no destructiva, preserva toda la información existente.</p></div><div class="feature-card"><h3>🔒 Normativa oficial</h3><p>Basado en la resolución publicada por el SRI en el Registro Oficial.</p></div></div>
+  <div class="st">&#10024; Funcionalidades principales</div>
+  <div class="grid">
+<div class="card"><h3>&#128200; Código 312: Bienes Muebles 1.75% &rarr; 2%</h3><p>Crea el nuevo impuesto '312 2% Bienes Muebles Corporales' con XML ID persistente y lo asigna como retención de bienes en la configuración de la empresa ecuatoriana.</p></div>
+<div class="card"><h3>&#128200; Código 3440: Otras Retenciones 2.75% &rarr; 3%</h3><p>Crea '3440 3% Otras Retenciones' con XML ID persistente y lo asigna como retención de servicios en la empresa. Sin duplicados.</p></div>
+<div class="card"><h3>&#128683; Archiva impuestos anteriores</h3><p>Los impuestos 1.75% y 2.75% quedan archivados (active=False) sin eliminar datos históricos. Las retenciones pasadas mantienen su porcentaje original.</p></div>
+<div class="card"><h3>&#9989; Instalación idempotente</h3><p>Si ya creaste los impuestos por SQL o instalación previa, el módulo los detecta y registra sus XML IDs sin crear duplicados. Seguro de reinstalar.</p></div>
+<div class="card"><h3>&#128203; Asignación automática en empresa</h3><p>Actualiza l10n_ec_withhold_goods_tax_id y l10n_ec_withhold_services_tax_id en res.company apuntando a los nuevos impuestos 2026.</p></div>
+<div class="card"><h3>&#128683; No afecta documentos históricos</h3><p>No modifica asientos ya contabilizados, RIMPE (1%/0%), ni retenciones de IVA. Solo actualiza la configuración para retenciones IR futuras.</p></div>
+  </div>
 </div>
-<hr class="divider"/>
+<hr/>
 <div class="section">
-    <div class="section-title">&#128640; Cómo funciona</div>
-    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Instala el módulo</h3><p>Instala desde Odoo Apps o sube el módulo a tu servidor.</p></div><div class="step"><div class="step-number">2</div><h3>Actualización automática</h3><p>El módulo aplica los cambios impositivos al instalar.</p></div><div class="step"><div class="step-number">3</div><h3>Verifica las tablas</h3><p>Revisa en Contabilidad → Configuración → Impuestos los valores actualizados.</p></div></div>
+  <div class="st">&#128640; Cómo funciona</div>
+  <div class="steps">
+<div class="step"><div class="num">1</div><h3>Instala el módulo</h3><p>Instala 'Ecuador SRI - NAC-DGERCGC26-00000009' en tu Odoo 17 con localización ecuatoriana l10n_ec_edi instalada.</p></div>
+<div class="step"><div class="num">2</div><h3>Post-install automático</h3><p>El hook post_init_hook crea y asigna automáticamente los nuevos impuestos 2026 al momento de instalar. Sin configuración adicional.</p></div>
+<div class="step"><div class="num">3</div><h3>Verifica los impuestos</h3><p>Ve a Contabilidad &rarr; Configuración &rarr; Impuestos y verifica que el 2% (312) y 3% (3440) están activos y asignados en la empresa.</p></div>
+  </div>
 </div>
-<hr class="divider"/>
-<div class="tags"><span class="tag">Ecuador</span><span class="tag">SRI</span><span class="tag">Impuestos</span><span class="tag">Retenciones</span><span class="tag">2026</span><span class="tag">Localización</span></div>
-<div class="footer">
-    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
+<hr/>
+<div class="shots">
+  <h2>Capturas de pantalla</h2>
+<div class="shot"><img src="images/chart_of_accounts.png" alt="Lista impuestos Ecuador Odoo 17 retenciones IR SRI actualizadas 2026 l10n_ec TRESCLOUD"/><p>Lista de impuestos en Odoo 17 con localización ecuatoriana &mdash; nuevas tasas de retención IR 2026 aplicadas automáticamente</p></div>
 </div>
-
-    <!-- SCREENSHOTS -->
-    <section style="background:#fff;padding:48px 40px;">
-      <h2 style="text-align:center;font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:32px;">
-        Capturas de pantalla
-      </h2>
-      
-        <div style="text-align:center;">
-            <img src="images/chart_of_accounts.png" alt="Plan de cuentas actualizado según normativa SRI Ecuador 2026"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Plan de cuentas actualizado según normativa SRI Ecuador 2026</p>
-        </div>
-    </section>
-    <!-- /SCREENSHOTS -->
-</body>
-</html>
+<div class="tags"><span class="tag">Ecuador SRI 2026</span><span class="tag">Retención IR</span><span class="tag">NAC-DGERCGC26-00000009</span><span class="tag">Impuestos Ecuador</span><span class="tag">Código 312</span><span class="tag">Código 3440</span><span class="tag">Odoo 17 Ecuador</span><span class="tag">l10n_ec</span><span class="tag">Localización fiscal Ecuador</span><span class="tag">TRESCLOUD</span><span class="tag">Actualización impuestos 2026</span></div>
+<footer>Desarrollado por <strong>PJFlow.io</strong> &mdash; <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0</footer>
+</body></html>

@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8"/>
+<head><meta charset="UTF-8"/>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #2d3748; background: #fff; }
-.hero { background: linear-gradient(135deg, #198754 0%, #005a27 100%); color: #fff; padding: 60px 40px; text-align: center; }
-.hero .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.hero { background: linear-gradient(135deg, #1e3a5f 0%, #1565c0 100%); color: #fff; padding: 60px 40px; text-align: center; }
+.badge { display: inline-block; background: rgba(255,255,255,0.18); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
 .hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
 .hero p { font-size: 17px; opacity: 0.92; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 .compat { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 14px 24px; margin: 24px 40px; font-size: 14px; color: #276749; }
+.alert { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 14px 24px; margin: 0 40px 20px; font-size: 14px; color: #856404; }
+.free { background: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 12px 24px; margin: 0 40px 20px; font-size: 15px; color: #155724; text-align: center; font-weight: 600; }
 .section { padding: 44px 40px; max-width: 900px; margin: 0 auto; }
-.section-title { font-size: 22px; font-weight: 700; color: #198754; margin-bottom: 28px; text-align: center; }
-.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #198754; }
-.feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
-.feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.st { font-size: 22px; font-weight: 700; color: #1565c0; margin-bottom: 28px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #1565c0; }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
+.card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .step { text-align: center; padding: 28px 16px; }
-.step-number { width: 46px; height: 46px; border-radius: 50%; background: #198754; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.num { width: 46px; height: 46px; border-radius: 50%; background: #1565c0; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
 .step h3 { font-size: 14px; font-weight: 600; margin-bottom: 7px; }
 .step p { font-size: 13px; color: #4a5568; line-height: 1.5; }
-.divider { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
-.tags { text-align: center; padding: 28px 40px; }
-.tag { display: inline-block; background: #edf2ff; color: #198754; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
-.footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
-.footer strong { color: #fff; }
-.footer a { color: #198754; text-decoration: none; }
-</style>
-</head>
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
+.shots { padding: 40px; }
+.shots h2 { font-size: 22px; font-weight: 700; color: #1565c0; margin-bottom: 28px; text-align: center; }
+.shot { text-align: center; margin-bottom: 28px; }
+.shot img { width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+.shot p { color: #666; font-size: 13px; margin-top: 6px; }
+.tags { text-align: center; padding: 20px 40px 28px; }
+.tag { display: inline-block; background: #edf2ff; color: #1565c0; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
+footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
+footer strong { color: #fff; }
+footer a { color: #60a5fa; text-decoration: none; }
+</style></head>
 <body>
+<div style="text-align:center;background:#1e3a5f;padding:0;">
+  <img src="images/payments_list.png" alt="Impresion cheques Ecuador Odoo 17 Produbanco Pacifico Banco lista pagos talonario" style="width:100%;max-width:100%;display:block;"/>
+</div>
 <div class="hero">
-    <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
-    <h1>Impresión de Cheques Produbanco y Banco del Pacífico</h1>
-    <p>Imprime cheques en el formato oficial de Produbanco y Banco del Pacífico directamente desde Odoo 17.</p>
-</div>
-<div class="compat">
-    <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
-</div>
-<div class="section">
-    <div class="section-title">&#10024; Funcionalidades principales</div>
-    <div class="features-grid"><div class="feature-card"><h3>🖨️ Formato Produbanco oficial</h3><p>Layout exacto según las especificaciones de cheques Produbanco Ecuador.</p></div><div class="feature-card"><h3>🏦 Banco del Pacífico incluido</h3><p>También incluye el layout oficial para cheques del Banco del Pacífico.</p></div><div class="feature-card"><h3>📐 Precisión milimétrica</h3><p>Campos posicionados con precisión para impresión en cheques físicos reales.</p></div><div class="feature-card"><h3>💰 Monto en letras</h3><p>Conversión automática del monto numérico a letras en español.</p></div><div class="feature-card"><h3>🏢 Multi-empresa</h3><p>Configura el formato para múltiples empresas con diferentes cuentas bancarias.</p></div><div class="feature-card"><h3>📄 PDF listo para imprimir</h3><p>Genera PDF optimizado para impresión directa sin ajustes adicionales.</p></div></div>
-</div>
-<hr class="divider"/>
-<div class="section">
-    <div class="section-title">&#128640; Cómo funciona</div>
-    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Configura la empresa</h3><p>Ve a Ajustes → Empresa y configura los datos bancarios de Produbanco.</p></div><div class="step"><div class="step-number">2</div><h3>Crea un pago</h3><p>En Contabilidad crea un pago con cheque como método de pago.</p></div><div class="step"><div class="step-number">3</div><h3>Imprime el cheque</h3><p>Haz clic en 'Imprimir Cheque' — el PDF aparece listo para tu impresora.</p></div></div>
-</div>
-<hr class="divider"/>
-<div class="tags"><span class="tag">Produbanco</span><span class="tag">Banco del Pacífico</span><span class="tag">Cheques</span><span class="tag">Ecuador</span><span class="tag">Contabilidad</span><span class="tag">Impresión</span></div>
-<div class="footer">
-    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
+  <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &middot; Cheques Bancarios</div>
+  <h1>Impresión de Cheques Ecuador &mdash; Produbanco, Pacífico y más</h1>
+  <p>Imprime cheques directamente desde Odoo 17 con el layout oficial de Produbanco, Banco del Pacífico y más. Monto en letras en español, formato exacto del talonario ecuatoriano. Funciona en Community y Enterprise.</p>
 </div>
 
-    <!-- SCREENSHOTS -->
-    <section style="background:#fff;padding:48px 40px;">
-      <h2 style="text-align:center;font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:32px;">
-        Capturas de pantalla
-      </h2>
-      
-        <div style="text-align:center;">
-            <img src="images/payments_list.png" alt="Lista de pagos con opción de impresión de cheques Produbanco"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Lista de pagos con opción de impresión de cheques Produbanco</p>
-        </div>
-        <div style="text-align:center;">
-            <img src="images/payment_form.png" alt="Formulario de pago con opciones Produbanco"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Formulario de pago con registro y conciliación</p>
-        </div>
-    </section>
-    <!-- /SCREENSHOTS -->
-</body>
-</html>
+<div class="compat"><strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Requiere <strong>account_check_printing</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong></div>
+<div class="section">
+  <div class="st">&#10024; Funcionalidades principales</div>
+  <div class="grid">
+<div class="card"><h3>&#127981; Layout Produbanco</h3><p>Plantilla de cheque optimizada para el formato oficial de Produbanco Ecuador. Incluye beneficiario, valor en letras, fecha, monto y espacio para firma.</p></div>
+<div class="card"><h3>&#127981; Layout Banco del Pacífico</h3><p>Plantilla de cheque para el formato de Banco del Pacífico Ecuador. Compatible con los talonarios estándar del banco.</p></div>
+<div class="card"><h3>&#127981; Layout Trionica (personalizable)</h3><p>Layout base personalizable para adaptar a cualquier banco ecuatoriano. Ajusta márgenes y posiciones según tu talonario específico.</p></div>
+<div class="card"><h3>&#128203; Valor en letras en español</h3><p>El monto se convierte automáticamente a letras: 'CIEN CON 50/100 DÓLARES'. Sin errores de tipeo, en español ecuatoriano correcto.</p></div>
+<div class="card"><h3>&#128196; Impresión desde pagos de Odoo</h3><p>Imprime directamente desde Pagos de proveedor. Selecciona el pago, elige el banco y genera el PDF listo para imprimir en tu talonario físico.</p></div>
+<div class="card"><h3>&#9881;&#65039; Formato de papel configurado</h3><p>Incluye la definición del formato de papel del cheque ecuatoriano para que la impresión quede perfectamente alineada en los talonarios físicos.</p></div>
+  </div>
+</div>
+<hr/>
+<div class="section">
+  <div class="st">&#128640; Cómo funciona</div>
+  <div class="steps">
+<div class="step"><div class="num">1</div><h3>Instala el módulo</h3><p>Instala el módulo en tu Odoo 17. Requiere account_check_printing (incluido en Odoo 17 Community y Enterprise).</p></div>
+<div class="step"><div class="num">2</div><h3>Selecciona un pago</h3><p>Ve a Contabilidad &rarr; Pagos de proveedor, selecciona el pago que deseas emitir en cheque y abre el formulario.</p></div>
+<div class="step"><div class="num">3</div><h3>Genera el PDF del cheque</h3><p>Selecciona el layout de tu banco (Produbanco, Pacífico, etc.) y descarga el PDF listo para imprimir en tu talonario.</p></div>
+  </div>
+</div>
+<hr/>
+<div class="shots">
+  <h2>Capturas de pantalla</h2>
+<div class="shot"><img src="images/payments_list.png" alt="Lista pagos proveedor Odoo 17 Ecuador impresion cheques Produbanco Pacifico Banco"/><p>Lista de pagos en Odoo 17 &mdash; selecciona un pago y genera el cheque PDF con el layout de tu banco ecuatoriano</p></div>
+</div>
+<div class="tags"><span class="tag">Cheques Ecuador</span><span class="tag">Produbanco</span><span class="tag">Banco del Pacífico</span><span class="tag">Impresión cheques Odoo</span><span class="tag">account_check_printing</span><span class="tag">Ecuador</span><span class="tag">Pagos Odoo 17</span><span class="tag">Talonario cheques</span><span class="tag">Contabilidad Ecuador</span><span class="tag">Pagos proveedor</span></div>
+<footer>Desarrollado por <strong>PJFlow.io</strong> &mdash; <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0</footer>
+</body></html>

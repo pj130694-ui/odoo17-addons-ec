@@ -1,77 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8"/>
+<head><meta charset="UTF-8"/>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #2d3748; background: #fff; }
-.hero { background: linear-gradient(135deg, #fd7e14 0%, #d05100 100%); color: #fff; padding: 60px 40px; text-align: center; }
-.hero .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.hero { background: linear-gradient(135deg, #064e3b 0%, #047857 100%); color: #fff; padding: 60px 40px; text-align: center; }
+.badge { display: inline-block; background: rgba(255,255,255,0.18); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
 .hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
 .hero p { font-size: 17px; opacity: 0.92; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 .compat { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 14px 24px; margin: 24px 40px; font-size: 14px; color: #276749; }
+.alert { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 14px 24px; margin: 0 40px 20px; font-size: 14px; color: #856404; }
+.free { background: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 12px 24px; margin: 0 40px 20px; font-size: 15px; color: #155724; text-align: center; font-weight: 600; }
 .section { padding: 44px 40px; max-width: 900px; margin: 0 auto; }
-.section-title { font-size: 22px; font-weight: 700; color: #fd7e14; margin-bottom: 28px; text-align: center; }
-.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #fd7e14; }
-.feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
-.feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.st { font-size: 22px; font-weight: 700; color: #059669; margin-bottom: 28px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #059669; }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
+.card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .step { text-align: center; padding: 28px 16px; }
-.step-number { width: 46px; height: 46px; border-radius: 50%; background: #fd7e14; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.num { width: 46px; height: 46px; border-radius: 50%; background: #059669; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
 .step h3 { font-size: 14px; font-weight: 600; margin-bottom: 7px; }
 .step p { font-size: 13px; color: #4a5568; line-height: 1.5; }
-.divider { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
-.tags { text-align: center; padding: 28px 40px; }
-.tag { display: inline-block; background: #edf2ff; color: #fd7e14; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
-.footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
-.footer strong { color: #fff; }
-.footer a { color: #fd7e14; text-decoration: none; }
-</style>
-</head>
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
+.shots { padding: 40px; }
+.shots h2 { font-size: 22px; font-weight: 700; color: #059669; margin-bottom: 28px; text-align: center; }
+.shot { text-align: center; margin-bottom: 28px; }
+.shot img { width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+.shot p { color: #666; font-size: 13px; margin-top: 6px; }
+.tags { text-align: center; padding: 20px 40px 28px; }
+.tag { display: inline-block; background: #edf2ff; color: #059669; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
+footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
+footer strong { color: #fff; }
+footer a { color: #60a5fa; text-decoration: none; }
+</style></head>
 <body>
+<div style="text-align:center;background:#064e3b;padding:0;">
+  <img src="images/invoice_form.png" alt="Herramientas EDI Ecuador Odoo 17 botones gestion factura electronica SRI cancelacion restablecer PDC cheque" style="width:100%;max-width:100%;display:block;"/>
+</div>
 <div class="hero">
-    <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
-    <h1>Ecuador EDI Toolkit — Herramientas de Gestión EDI</h1>
-    <p>Herramientas avanzadas para administrar, diagnosticar y corregir documentos electrónicos del SRI en Odoo.</p>
+  <div class="badge">PJFlow.io &middot; Odoo 17 &middot; EDI Ecuador &middot; l10n_ec_edi</div>
+  <h1>Herramientas EDI Ecuador &mdash; Gestión Segura de Facturas Electrónicas SRI</h1>
+  <p>Toolkit de botones para gestionar facturas electrónicas ecuatorianas en Odoo 17: pasar a borrador seguro, limpiar errores SRI, solicitar cancelación EDI, restablecer documentos anulados y cheques PDC.</p>
 </div>
-<div class="compat">
-    <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
-</div>
+<div class="alert"><strong>&#9432; Nota:</strong> Requiere la <strong>localización ecuatoriana Enterprise</strong> (l10n_ec_edi). Compatible con TRESCLOUD para Odoo 17 Community con l10n_ec_edi portado.</div>
+<div class="compat"><strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Enterprise</strong> &nbsp;|&nbsp; Requiere <strong>l10n_ec_edi</strong> y <strong>l10n_ec_reports_ats</strong> &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong></div>
 <div class="section">
-    <div class="section-title">&#10024; Funcionalidades principales</div>
-    <div class="features-grid"><div class="feature-card"><h3>🛠️ Herramientas de diagnóstico</h3><p>Verifica el estado de los documentos EDI y detecta errores de envío al SRI.</p></div><div class="feature-card"><h3>🔄 Reenvío masivo</h3><p>Reenvía múltiples documentos con error al SRI con un solo clic.</p></div><div class="feature-card"><h3>📊 Dashboard EDI</h3><p>Vista centralizada del estado de todos los comprobantes electrónicos.</p></div><div class="feature-card"><h3>🔍 Validador XML</h3><p>Valida la estructura de los XML antes de enviarlos al SRI.</p></div><div class="feature-card"><h3>📋 Log detallado</h3><p>Registro completo de comunicaciones con el SRI para auditoría.</p></div><div class="feature-card"><h3>⚡ Integración total</h3><p>Extiende y complementa el módulo EDI Loader PJFlow.</p></div></div>
+  <div class="st">&#10024; Funcionalidades principales</div>
+  <div class="grid">
+<div class="card"><h3>&#8617; Pasar a Borrador seguro</h3><p>Botón con validaciones de seguridad para facturas electrónicas. Evita dejar comprobantes en estado incoherente entre Odoo y el SRI.</p></div>
+<div class="card"><h3>&#128683; Solicitar Cancelación EDI al SRI</h3><p>Botón 'Solicitar la cancelación de EDI' para iniciar el proceso de anulación del comprobante ante el SRI directamente desde la factura.</p></div>
+<div class="card"><h3>&#128260; Restablecer Documentos Anulados SRI</h3><p>Botón 'Restablecer (Anulado SRI)' para sincronizar el estado EDI de facturas que fueron anuladas en el SRI, volviendo al estado correcto en Odoo.</p></div>
+<div class="card"><h3>&#128683; Limpiar Error SRI</h3><p>Limpia el estado de error de autorización SRI en facturas que quedaron con error tras problemas de comunicación, sin perder el comprobante.</p></div>
+<div class="card"><h3>&#128203; Registrar Cheque PDC</h3><p>Botón 'Register PDC Cheque' para registrar cheques posfechados directamente desde la factura. Control del flujo de cobros futuros con estado PDC visible.</p></div>
+<div class="card"><h3>&#128204; Columna PDC Status en lista</h3><p>La vista lista de facturas muestra el estado del cheque posfechado (PDC) de cada documento para control rápido de cobros pendientes.</p></div>
+  </div>
 </div>
-<hr class="divider"/>
+<hr/>
 <div class="section">
-    <div class="section-title">&#128640; Cómo funciona</div>
-    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Prerequisito</h3><p>Requiere l10n_ec_edi_load_pjflow instalado previamente.</p></div><div class="step"><div class="step-number">2</div><h3>Accede al Dashboard</h3><p>Ve a Contabilidad → EDI Ecuador → Dashboard para ver el estado general.</p></div><div class="step"><div class="step-number">3</div><h3>Gestiona errores</h3><p>Selecciona documentos con error y usa Reenviar para corregirlos.</p></div></div>
+  <div class="st">&#128640; Cómo funciona</div>
+  <div class="steps">
+<div class="step"><div class="num">1</div><h3>Instala el toolkit</h3><p>Instala el módulo en tu Odoo 17 con l10n_ec_edi. Los botones aparecen automáticamente en las facturas de clientes.</p></div>
+<div class="step"><div class="num">2</div><h3>Usa los botones EDI</h3><p>Desde cualquier factura: Solicitar cancelación EDI, Restablecer (Anulado SRI), Limpiar Error SRI o Register PDC Cheque según necesites.</p></div>
+<div class="step"><div class="num">3</div><h3>Controla el estado EDI</h3><p>La lista de facturas muestra PDC Status y estado de registro EDI de cada documento para auditoría rápida del proceso.</p></div>
+  </div>
 </div>
-<hr class="divider"/>
-<div class="tags"><span class="tag">Ecuador</span><span class="tag">SRI</span><span class="tag">EDI</span><span class="tag">Herramientas</span><span class="tag">Diagnóstico</span><span class="tag">Facturación</span></div>
-<div class="footer">
-    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
+<hr/>
+<div class="shots">
+  <h2>Capturas de pantalla</h2>
+<div class="shot"><img src="images/invoice_form.png" alt="Formulario factura Odoo 17 Ecuador botones EDI cancelacion SRI restablecer anulado PDC cheque posfechado"/><p>Formulario de factura con botones: Register PDC Cheque, Solicitar cancelación EDI, Restablecer (Anulado SRI), Limpiar Error SRI</p></div>
+<div class="shot"><img src="images/invoices_list.png" alt="Lista facturas Odoo 17 Ecuador columna PDC Status estado cheque posfechado cobros pendientes"/><p>Lista de facturas con columna PDC Status &mdash; visualiza el estado de cobro de cada factura de un vistazo</p></div>
 </div>
-
-    <!-- SCREENSHOTS -->
-    <section style="background:#fff;padding:48px 40px;">
-      <h2 style="text-align:center;font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:32px;">
-        Capturas de pantalla
-      </h2>
-      
-        <div style="text-align:center;">
-            <img src="images/invoices_list.png" alt="Facturas de clientes con estados de autorización SRI"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Facturas de clientes con estados de autorización SRI</p>
-        </div>
-        <div style="text-align:center;">
-            <img src="images/invoice_form.png" alt="Detalle de factura con información EDI XML del SRI"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Detalle de factura con información EDI XML del SRI</p>
-        </div>
-    </section>
-    <!-- /SCREENSHOTS -->
-</body>
-</html>
+<div class="tags"><span class="tag">Ecuador</span><span class="tag">EDI</span><span class="tag">SRI</span><span class="tag">Factura electrónica</span><span class="tag">l10n_ec_edi</span><span class="tag">Cancelación EDI</span><span class="tag">PDC</span><span class="tag">Cheque posfechado</span><span class="tag">Odoo 17 Ecuador</span><span class="tag">TRESCLOUD</span><span class="tag">Contabilidad Ecuador</span><span class="tag">l10n_ec_reports_ats</span></div>
+<footer>Desarrollado por <strong>PJFlow.io</strong> &mdash; <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0</footer>
+</body></html>

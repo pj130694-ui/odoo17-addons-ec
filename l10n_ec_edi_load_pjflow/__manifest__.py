@@ -64,6 +64,7 @@ Características principales:
         'views/res_partner.xml',
         'views/report_payment_receipt.xml',
     ],
+    'images': ['static/description/images/invoices_list.png'],
     'installable': True,
     'application': True,
     'auto_install': False,

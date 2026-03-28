@@ -1,77 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8"/>
+<head><meta charset="UTF-8"/>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #2d3748; background: #fff; }
-.hero { background: linear-gradient(135deg, #20c997 0%, #009c6a 100%); color: #fff; padding: 60px 40px; text-align: center; }
-.hero .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.hero { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: #fff; padding: 60px 40px; text-align: center; }
+.badge { display: inline-block; background: rgba(255,255,255,0.18); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
 .hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
 .hero p { font-size: 17px; opacity: 0.92; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 .compat { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 14px 24px; margin: 24px 40px; font-size: 14px; color: #276749; }
+.alert { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 14px 24px; margin: 0 40px 20px; font-size: 14px; color: #856404; }
+.free { background: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 12px 24px; margin: 0 40px 20px; font-size: 15px; color: #155724; text-align: center; font-weight: 600; }
 .section { padding: 44px 40px; max-width: 900px; margin: 0 auto; }
-.section-title { font-size: 22px; font-weight: 700; color: #20c997; margin-bottom: 28px; text-align: center; }
-.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #20c997; }
-.feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
-.feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.st { font-size: 22px; font-weight: 700; color: #7c3aed; margin-bottom: 28px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #7c3aed; }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
+.card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .step { text-align: center; padding: 28px 16px; }
-.step-number { width: 46px; height: 46px; border-radius: 50%; background: #20c997; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.num { width: 46px; height: 46px; border-radius: 50%; background: #7c3aed; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
 .step h3 { font-size: 14px; font-weight: 600; margin-bottom: 7px; }
 .step p { font-size: 13px; color: #4a5568; line-height: 1.5; }
-.divider { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
-.tags { text-align: center; padding: 28px 40px; }
-.tag { display: inline-block; background: #edf2ff; color: #20c997; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
-.footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
-.footer strong { color: #fff; }
-.footer a { color: #20c997; text-decoration: none; }
-</style>
-</head>
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
+.shots { padding: 40px; }
+.shots h2 { font-size: 22px; font-weight: 700; color: #7c3aed; margin-bottom: 28px; text-align: center; }
+.shot { text-align: center; margin-bottom: 28px; }
+.shot img { width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+.shot p { color: #666; font-size: 13px; margin-top: 6px; }
+.tags { text-align: center; padding: 20px 40px 28px; }
+.tag { display: inline-block; background: #edf2ff; color: #7c3aed; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
+footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
+footer strong { color: #fff; }
+footer a { color: #60a5fa; text-decoration: none; }
+</style></head>
 <body>
+<div style="text-align:center;background:#4f46e5;padding:0;">
+  <img src="images/product_form.png" alt="Enriquecimiento productos IA GPT-4o Odoo 17 descripciones imagenes automaticas boton Enriquecer con IA" style="width:100%;max-width:100%;display:block;"/>
+</div>
 <div class="hero">
-    <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
-    <h1>Enriquecimiento de Productos con IA</h1>
-    <p>Genera descripciones, nombres optimizados y contenido SEO para tus productos usando Inteligencia Artificial.</p>
-</div>
-<div class="compat">
-    <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
-</div>
-<div class="section">
-    <div class="section-title">&#10024; Funcionalidades principales</div>
-    <div class="features-grid"><div class="feature-card"><h3>✍️ Descripciones automáticas</h3><p>La IA genera descripciones atractivas y completas para tus productos con un clic.</p></div><div class="feature-card"><h3>🔍 Optimización SEO</h3><p>Genera títulos y descripciones optimizados para motores de búsqueda.</p></div><div class="feature-card"><h3>🌐 Multiidioma</h3><p>Genera contenido en español, inglés y otros idiomas según tu mercado.</p></div><div class="feature-card"><h3>⚙️ Procesamiento masivo</h3><p>Enriquece cientos de productos automáticamente con el cron integrado.</p></div><div class="feature-card"><h3>📊 Log de actividad</h3><p>Registra cada enriquecimiento realizado con fecha, modelo y resultado.</p></div><div class="feature-card"><h3>🎛️ Personalizable</h3><p>Configura el tono, longitud y estilo del contenido generado.</p></div></div>
-</div>
-<hr class="divider"/>
-<div class="section">
-    <div class="section-title">&#128640; Cómo funciona</div>
-    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Configura tu API Key</h3><p>Ve a Ajustes → Enriquecimiento IA e ingresa tu clave de API.</p></div><div class="step"><div class="step-number">2</div><h3>Selecciona productos</h3><p>Marca los productos que deseas enriquecer o usa el procesamiento masivo.</p></div><div class="step"><div class="step-number">3</div><h3>Genera contenido</h3><p>Haz clic en 'Enriquecer' y la IA completa nombre, descripción y más.</p></div></div>
-</div>
-<hr class="divider"/>
-<div class="tags"><span class="tag">IA</span><span class="tag">Inteligencia Artificial</span><span class="tag">Productos</span><span class="tag">SEO</span><span class="tag">eCommerce</span><span class="tag">ChatGPT</span></div>
-<div class="footer">
-    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
+  <div class="badge">PJFlow.io &middot; Odoo 17 &middot; GPT-4o &middot; Google Images</div>
+  <h1>Enriquecimiento de Productos con IA &mdash; Descripciones e Imágenes Automáticas</h1>
+  <p>Genera descripciones de venta profesionales con GPT-4o y busca imágenes reales en Google Images (Serper.dev) &mdash; todo automáticamente en Odoo 17. Ideal para catálogos con cientos o miles de productos.</p>
 </div>
 
-    <!-- SCREENSHOTS -->
-    <section style="background:#fff;padding:48px 40px;">
-      <h2 style="text-align:center;font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:32px;">
-        Capturas de pantalla
-      </h2>
-      
-        <div style="text-align:center;">
-            <img src="images/products_list.png" alt="Catálogo de productos con enriquecimiento de datos con IA"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Catálogo de productos con enriquecimiento de datos con IA</p>
-        </div>
-        <div style="text-align:center;">
-            <img src="images/product_form.png" alt="Formulario de producto con descripción y SEO generados por IA"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Formulario de producto con descripción y SEO generados por IA</p>
-        </div>
-    </section>
-    <!-- /SCREENSHOTS -->
-</body>
-</html>
+<div class="compat"><strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Requiere API key de OpenAI &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong></div>
+<div class="section">
+  <div class="st">&#10024; Funcionalidades principales</div>
+  <div class="grid">
+<div class="card"><h3>&#129302; Descripciones con GPT-4o</h3><p>Genera descripciones de venta profesionales para cada producto usando GPT-4o de OpenAI. Texto optimizado para conversión con características técnicas y beneficios. Costo: ~$0.002 por descripción.</p></div>
+<div class="card"><h3>&#128247; Imágenes desde Google Images</h3><p>Busca y descarga la imagen más relevante del producto en Google usando Serper.dev (2500 búsquedas gratis). Pixabay como respaldo gratuito si no hay Serper key configurada.</p></div>
+<div class="card"><h3>&#128204; Botón 'Enriquecer con IA'</h3><p>Botón manual en el formulario de producto para enriquecer individualmente. Útil para productos nuevos o para forzar la actualización de uno específico desde el formulario.</p></div>
+<div class="card"><h3>&#8987; Cron automático cada 2 horas</h3><p>Tarea programada que procesa automáticamente los productos sin imagen o sin descripción en background. Configura cuántos productos procesar por ciclo (20-50 recomendado).</p></div>
+<div class="card"><h3>&#9881;&#65039; Configuración en Ajustes</h3><p>Configura OpenAI, Serper.dev y Pixabay API Keys desde Ajustes &rarr; Enriquecimiento IA. Sin tocar código ni archivos de configuración del servidor.</p></div>
+<div class="card"><h3>&#128200; Escala a miles de productos</h3><p>Procesa catálogos enteros en background. Ideal para tiendas con 500, 1000 o más productos que necesitan contenido profesional generado rápidamente.</p></div>
+  </div>
+</div>
+<hr/>
+<div class="section">
+  <div class="st">&#128640; Cómo funciona</div>
+  <div class="steps">
+<div class="step"><div class="num">1</div><h3>Configura las APIs</h3><p>En Ajustes &rarr; Enriquecimiento IA ingresa tu OpenAI API Key y Serper.dev Key para búsqueda de imágenes en Google.</p></div>
+<div class="step"><div class="num">2</div><h3>Enriquece tus productos</h3><p>Usa el botón 'Enriquecer con IA' en productos individuales, o activa el cron automático para procesar todo el catálogo sin intervención.</p></div>
+<div class="step"><div class="num">3</div><h3>Catálogo profesional</h3><p>Cada producto tendrá descripción de venta profesional e imagen real. Tu tienda online lucirá como un catálogo premium.</p></div>
+  </div>
+</div>
+<hr/>
+<div class="shots">
+  <h2>Capturas de pantalla</h2>
+<div class="shot"><img src="images/product_form.png" alt="Formulario producto Odoo 17 boton Enriquecer con IA GPT-4o descripcion automatica imagen Google"/><p>Botón 'Enriquecer con IA' en el formulario de producto &mdash; genera descripción e imagen en segundos con GPT-4o y Google Images</p></div>
+<div class="shot"><img src="images/settings.png" alt="Configuracion API OpenAI Serper Pixabay Odoo 17 enriquecimiento productos IA automatico"/><p>Configuración en Ajustes &mdash; OpenAI API Key para descripciones, Serper.dev para imágenes de Google, Pixabay como respaldo</p></div>
+</div>
+<div class="tags"><span class="tag">IA productos</span><span class="tag">GPT-4o</span><span class="tag">OpenAI Odoo</span><span class="tag">Descripción automática</span><span class="tag">Imágenes productos</span><span class="tag">Google Images</span><span class="tag">Odoo 17</span><span class="tag">Catálogo eCommerce</span><span class="tag">Enriquecimiento IA</span><span class="tag">Automatización productos</span><span class="tag">Serper.dev</span></div>
+<footer>Desarrollado por <strong>PJFlow.io</strong> &mdash; <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0</footer>
+</body></html>

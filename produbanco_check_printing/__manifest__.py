@@ -17,6 +17,7 @@
         "report/trionica_check.xml",
         "report/pacifico_check.xml",
     ],
+    "images": ["static/description/images/payments_list.png"],
     "installable": True,
     "application": False,
     "license": "LGPL-3"

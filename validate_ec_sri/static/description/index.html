@@ -1,83 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8"/>
+<head><meta charset="UTF-8"/>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #2d3748; background: #fff; }
-.hero { background: linear-gradient(135deg, #6f42c1 0%, #421594 100%); color: #fff; padding: 60px 40px; text-align: center; }
-.hero .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.hero { background: linear-gradient(135deg, #0041d0 0%, #0d6efd 100%); color: #fff; padding: 60px 40px; text-align: center; }
+.badge { display: inline-block; background: rgba(255,255,255,0.18); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
 .hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
 .hero p { font-size: 17px; opacity: 0.92; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 .compat { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 14px 24px; margin: 24px 40px; font-size: 14px; color: #276749; }
+.alert { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 14px 24px; margin: 0 40px 20px; font-size: 14px; color: #856404; }
+.free { background: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 12px 24px; margin: 0 40px 20px; font-size: 15px; color: #155724; text-align: center; font-weight: 600; }
 .section { padding: 44px 40px; max-width: 900px; margin: 0 auto; }
-.section-title { font-size: 22px; font-weight: 700; color: #6f42c1; margin-bottom: 28px; text-align: center; }
-.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #6f42c1; }
-.feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
-.feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.st { font-size: 22px; font-weight: 700; color: #0d6efd; margin-bottom: 28px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #0d6efd; }
+.card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
+.card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .step { text-align: center; padding: 28px 16px; }
-.step-number { width: 46px; height: 46px; border-radius: 50%; background: #6f42c1; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.num { width: 46px; height: 46px; border-radius: 50%; background: #0d6efd; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
 .step h3 { font-size: 14px; font-weight: 600; margin-bottom: 7px; }
 .step p { font-size: 13px; color: #4a5568; line-height: 1.5; }
-.divider { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
-.tags { text-align: center; padding: 28px 40px; }
-.tag { display: inline-block; background: #edf2ff; color: #6f42c1; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
-.footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
-.footer strong { color: #fff; }
-.footer a { color: #6f42c1; text-decoration: none; }
-</style>
-</head>
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
+.shots { padding: 40px; }
+.shots h2 { font-size: 22px; font-weight: 700; color: #0d6efd; margin-bottom: 28px; text-align: center; }
+.shot { text-align: center; margin-bottom: 28px; }
+.shot img { width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+.shot p { color: #666; font-size: 13px; margin-top: 6px; }
+.tags { text-align: center; padding: 20px 40px 28px; }
+.tag { display: inline-block; background: #edf2ff; color: #0d6efd; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
+footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
+footer strong { color: #fff; }
+footer a { color: #60a5fa; text-decoration: none; }
+</style></head>
 <body>
+<div style="text-align:center;background:#0041d0;padding:0;">
+  <img src="images/partner_form.png" alt="Validacion RUC Cedula Ecuador Odoo 17 boton Consultar SRI Registro Civil autocompletar contacto" style="width:100%;max-width:100%;display:block;"/>
+</div>
 <div class="hero">
-    <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
-    <h1>Ecuador SRI/RC — Validación y Autocompletado de Contactos</h1>
-    <p>Autocompleta nombre, cédula, dirección, teléfono y correo desde el SRI y Registro Civil con un clic.</p>
+  <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464; &middot; GRATIS</div>
+  <h1>Validación y Autocompletado de RUC/Cédula Ecuador</h1>
+  <p>Valida RUC, cédula y pasaporte en tiempo real y autocompleta razón social, estado SRI, régimen tributario y datos del contribuyente desde el SRI y Registro Civil &mdash; con un clic en Odoo 17.</p>
 </div>
-<div class="compat">
-    <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
-</div>
+<div class="free">&#127881; Módulo 100% GRATIS &mdash; API de consulta disponible en <a href="https://consultas.ec" style="color:#155724;">consultas.ec</a> desde $5 USD</div>
+<div class="compat"><strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong></div>
 <div class="section">
-    <div class="section-title">&#10024; Funcionalidades principales</div>
-    <div class="features-grid"><div class="feature-card"><h3>🔍 Búsqueda por Cédula / RUC</h3><p>Ingresa el número y los datos se llenan automáticamente desde el SRI y Registro Civil del Ecuador.</p></div><div class="feature-card"><h3>👤 Búsqueda por Nombre</h3><p>Escribe el nombre de la persona y selecciona el resultado — ideal cuando no tienes la cédula a mano.</p></div><div class="feature-card"><h3>📋 Datos completos</h3><p>Nombre completo, dirección, teléfono, correo electrónico, tipo de contribuyente y estado en el SRI.</p></div><div class="feature-card"><h3>🏢 Personas y Empresas</h3><p>Compatible con cédulas (10 dígitos) y RUC (13 dígitos) de personas naturales y sociedades.</p></div><div class="feature-card"><h3>✅ Validación de formato</h3><p>Verifica el dígito verificador de cédulas y la estructura del RUC antes de guardar.</p></div><div class="feature-card"><h3>⚡ Autocompletado en tiempo real</h3><p>Al escribir el número de identificación se dispara la consulta automáticamente.</p></div></div>
+  <div class="st">&#10024; Funcionalidades principales</div>
+  <div class="grid">
+<div class="card"><h3>&#128269; Validación automática de RUC y Cédula</h3><p>Verifica el algoritmo ecuatoriano (módulo 10/11) de cédulas (10 dígitos) y RUC empresariales (13 dígitos) antes de guardar. Cero errores de datos en tus contactos.</p></div>
+<div class="card"><h3>&#128196; Autocompletado desde el SRI</h3><p>Un clic consulta el SRI y rellena: razón social, nombre comercial, estado del contribuyente, régimen tributario (RIMPE, General), actividad económica y más.</p></div>
+<div class="card"><h3>&#127968; Consulta al Registro Civil</h3><p>Para personas naturales con cédula, obtiene el nombre completo desde el Registro Civil ecuatoriano. Datos oficiales en tiempo real.</p></div>
+<div class="card"><h3>&#128203; Campos tributarios SRI en contacto</h3><p>Guarda estado, régimen, obligado a llevar contabilidad, agente de retención (con número resolución), contribuyente especial y fecha de verificación.</p></div>
+<div class="card"><h3>&#9989; Unicidad de identificación</h3><p>Impide crear dos contactos con el mismo RUC o cédula dentro de la empresa. Base de datos de clientes y proveedores limpia y sin duplicados.</p></div>
+<div class="card"><h3>&#9881;&#65039; Configuración del API en Ajustes</h3><p>URL y token del API configurables en Ajustes Generales. Compatible con consultas.ec o tu propio servidor privado en tu infraestructura.</p></div>
+  </div>
 </div>
-<hr class="divider"/>
+<hr/>
 <div class="section">
-    <div class="section-title">&#128640; Cómo funciona</div>
-    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Configura el Token API</h3><p>Ve a Ajustes → SRI Ecuador e ingresa tu Token de acceso al API.</p></div><div class="step"><div class="step-number">2</div><h3>Crea o abre un Contacto</h3><p>Ingresa la cédula o RUC — los datos se completan solos.</p></div><div class="step"><div class="step-number">3</div><h3>Búsqueda por Nombre</h3><p>Usa el botón 'Buscar por Nombre' para localizar personas sin conocer su cédula.</p></div></div>
+  <div class="st">&#128640; Cómo funciona</div>
+  <div class="steps">
+<div class="step"><div class="num">1</div><h3>Abre un contacto</h3><p>Crea o edita un contacto. Escribe el RUC (13 dígitos) o cédula (10 dígitos) en el campo NIF/VAT.</p></div>
+<div class="step"><div class="num">2</div><h3>Clic &ldquo;Consultar SRI / RC&rdquo;</h3><p>El botón azul junto al NIF consulta el API del SRI y Registro Civil en menos de 2 segundos.</p></div>
+<div class="step"><div class="num">3</div><h3>Datos autocompletados</h3><p>Razón social, estado, régimen y campos tributarios se llenan automáticamente. ¡Cero tipeo manual!</p></div>
+  </div>
 </div>
-<hr class="divider"/>
-<div class="tags"><span class="tag">Ecuador</span><span class="tag">SRI</span><span class="tag">Registro Civil</span><span class="tag">Contactos</span><span class="tag">Localización</span></div>
-<div class="footer">
-    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
+<hr/>
+<div class="shots">
+  <h2>Capturas de pantalla</h2>
+<div class="shot"><img src="images/partner_form.png" alt="Formulario contacto Odoo 17 con boton Consultar SRI RC validar RUC cedula Ecuador autocompletar"/><p>Botón "Consultar SRI / RC" en el formulario de contacto &mdash; autocompleta razón social y datos tributarios en un clic</p></div>
+<div class="shot"><img src="images/contacts_list.png" alt="Lista contactos Ecuador Odoo 17 con RUC cedula validados SRI empresa proveedor cliente"/><p>Lista de contactos con miles de empresas y personas naturales ecuatorianas con identificación validada</p></div>
 </div>
-
-    <!-- SCREENSHOTS -->
-    <section style="background:#fff;padding:48px 40px;">
-      <h2 style="text-align:center;font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:32px;">
-        Capturas de pantalla
-      </h2>
-      
-        <div style="text-align:center;">
-            <img src="images/contacts_list.png" alt="Lista de contactos con campos SRI (RUC, tipo contribuyente, parte relacionada)"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Lista de contactos con campos SRI (RUC, tipo contribuyente, parte relacionada)</p>
-        </div>
-        <div style="text-align:center;">
-            <img src="images/partner_form.png" alt="Formulario de contacto con botón "Buscar por Nombre" integrado"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Formulario de contacto con botón "Buscar por Nombre" integrado</p>
-        </div>
-        <div style="text-align:center;">
-            <img src="images/wizard.png" alt="Wizard de búsqueda por nombre en el SRI / Registro Civil"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Wizard de búsqueda por nombre en el SRI / Registro Civil</p>
-        </div>
-    </section>
-    <!-- /SCREENSHOTS -->
-</body>
-</html>
+<div class="tags"><span class="tag">Ecuador</span><span class="tag">SRI</span><span class="tag">RUC</span><span class="tag">Cédula</span><span class="tag">Validación RUC Ecuador</span><span class="tag">Autocompletar contacto</span><span class="tag">Registro Civil</span><span class="tag">Contribuyente SRI</span><span class="tag">l10n_ec</span><span class="tag">Odoo 17</span><span class="tag">Facturación Electrónica Ecuador</span><span class="tag">consultas.ec</span></div>
+<footer>Desarrollado por <strong>PJFlow.io</strong> &mdash; <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0</footer>
+</body></html>
