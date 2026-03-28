@@ -5,7 +5,7 @@
     'summary': 'Enriquece automáticamente tus productos con imágenes profesionales y descripciones generadas por IA (GPT-4o + Google Images)',
     'author': 'PJFlow.io',
     'website': 'https://pjflow.io',
-    'price': 39.99,
+    'price': 59.99,
     'currency': 'USD',
     'license': 'LGPL-3',
     'depends': ['product', 'base_setup'],

@@ -13,7 +13,7 @@
     'description': "Botones de gestion segura de facturas EC: reset a borrador y manejo de errores SRI.",
     'author': 'PJFlow.io',
     'category': 'Accounting/Localizations/EDI',
-    'price': 29.99,
+    'price': 49.99,
     'currency': 'USD',
     'license': 'LGPL-3',
     'depends': [

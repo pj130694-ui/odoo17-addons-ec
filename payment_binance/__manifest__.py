@@ -7,7 +7,7 @@
                    '(USDT, BTC, ETH, BNB, etc.) using Binance Pay.',
     'author': 'PJFlow.io',
     'website': 'https://pjflow.io',
-    'price': 49.99,
+    'price': 79.99,
     'currency': 'USD',
     'license': 'LGPL-3',
     'depends': ['payment'],

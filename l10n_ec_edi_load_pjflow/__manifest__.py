@@ -16,7 +16,7 @@
     'version': '17.0.1.1',
     'author': 'PJFlow.io',
     'website': 'https://pjflow.io',
-    'price': 49.99,
+    'price': 99.99,
     'currency': 'USD',
     'license': 'LGPL-3',
     'summary': 'Carga masiva de documentos electrónicos SRI para Odoo Ecuador',

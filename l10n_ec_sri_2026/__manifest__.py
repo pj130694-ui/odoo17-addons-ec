@@ -39,7 +39,7 @@ No afecta:
     'data': [],
     'installable': True,
     'auto_install': False,
-    'price': 9.99,
+    'price': 19.99,
     'currency': 'USD',
     'license': 'LGPL-3',
     'post_init_hook': 'post_init_hook',

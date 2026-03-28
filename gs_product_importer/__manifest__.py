@@ -22,7 +22,7 @@
     """,
     'category': 'Inventory',
     'author': 'PJFlow.io',
-    'price': 39.99,
+    'price': 49.99,
     'currency': 'USD',
     'license': 'LGPL-3',
     'depends': ['stock', 'product', 'base_setup'],
