@@ -2,7 +2,7 @@
 <odoo>
 	<data>
 
-		<record model="ir.ui.view" id="ec_account_edi_load_partner_view">
+		<record model="ir.ui.view" id="l10n_ec_edi_load_pjflow_partner_view">
 			<field name="name">ec.account.edi.load.partner.view</field>
 			<field name="model">res.partner</field>
 			<field name="inherit_id" ref="account.view_partner_property_form" />
