@@ -5,7 +5,7 @@
     'website': 'https://pjflow.io',
     'category': 'Accounting',
     'summary': 'Migración de cheques ec_payment_check (Odoo 16) a sh_pdc (Odoo 17)',
-    'depends': ['sh_pdc', 'sh_pdc_trionica_check_printing'],
+    'depends': ['sh_pdc'],
     'data': [
         'security/ir.model.access.csv',
         'views/pdc_wizard_legacy_views.xml',
