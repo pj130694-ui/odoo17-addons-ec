@@ -5,7 +5,7 @@
     'summary': 'Valida cédula/RUC y autocompleta datos del contacto consultando el SRI y Registro Civil',
     'author': 'PJFlow.io',
     'website': 'https://trionica.ec',
-    'price': 49.99,
+    'price': 0,
     'currency': 'USD',
     'license': 'LGPL-3',
     'depends': [
