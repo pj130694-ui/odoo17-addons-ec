@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Menu hierarchy:
+          Inventory
+          └─ Configuration          (stock.menu_stock_config_settings)
+             └─ Google Sheet Import           ← root (this file)
+                ├─ Import Logs
+                └─ Run Import Now
+    -->
+
+    <!-- Root entry under Inventory > Configuration -->
+    <menuitem
+        id="menu_gs_import_root"
+        name="Google Sheet Import"
+        parent="stock.menu_stock_config_settings"
+        sequence="99"
+        groups="stock.group_stock_manager"/>
+
+    <!-- List of past import logs -->
+    <menuitem
+        id="menu_gs_import_logs"
+        name="Import Logs"
+        parent="menu_gs_import_root"
+        action="action_gs_import_log"
+        sequence="10"/>
+
+    <!-- Trigger a new import immediately -->
+    <menuitem
+        id="menu_gs_run_import_now"
+        name="Run Import Now"
+        parent="menu_gs_import_root"
+        action="action_server_gs_run_import"
+        sequence="20"/>
+
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Register theme CSS via ir.asset (manifest assets key is ignored for theme_ modules) -->
+    <record id="theme_abcminer_css" model="ir.asset">
+        <field name="name">ABCMiner Theme CSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">theme_abcminer/static/src/css/theme.css</field>
+        <field name="sequence">200</field>
+    </record>
+
+    <record id="theme_abcminer_js" model="ir.asset">
+        <field name="name">ABCMiner Theme JS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">theme_abcminer/static/src/js/theme.js</field>
+        <field name="sequence">200</field>
+    </record>
+</odoo>

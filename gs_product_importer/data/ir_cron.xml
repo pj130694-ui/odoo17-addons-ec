@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Scheduled action for automatic Google Sheet product import.
+
+        Default: inactive (active=False), runs daily.
+        Activate in Settings > Technical > Automation > Scheduled Actions
+        once the integration settings are configured.
+
+        The Python code calls run_scheduled_import() which checks the
+        'auto_import' flag before doing any work, so activating the cron
+        without enabling the flag in Settings is safe.
+    -->
+    <record id="ir_cron_gs_product_import" model="ir.cron">
+        <field name="name">GS Product Import: Auto Import Product Variants</field>
+        <field name="model_id" ref="gs_product_importer.model_gs_import_log"/>
+        <field name="state">code</field>
+        <field name="code">model.run_scheduled_import()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">False</field>
+        <field name="user_id" ref="base.user_root"/>
+    </record>
+</odoo>

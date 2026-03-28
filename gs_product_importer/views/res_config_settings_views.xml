@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_gs_importer_res_config_settings" model="ir.ui.view">
+        <field name="name">res.config.settings.view.gs.importer</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Google Sheet Import"
+                     string="Google Sheet Import"
+                     name="gs_product_importer"
+                     groups="stock.group_stock_manager">
+
+                    <!-- Enable / Disable -->
+                    <block title="Connection" name="gs_connection_block">
+                        <setting id="gs_active_setting"
+                                 title="Activate Google Sheets connectivity">
+                            <field name="gs_active"/>
+                            <div class="content-group">
+                                <div class="mt8">Enable Google Sheets integration for product imports.</div>
+                            </div>
+                        </setting>
+                        <setting id="gs_auto_import_setting"
+                                 title="Run the import automatically on a schedule">
+                            <field name="gs_auto_import"/>
+                            <div class="content-group">
+                                <div class="mt8">
+                                    Activates the Scheduled Action. Requires Enable Integration.
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+
+                    <!-- Catalog sync -->
+                    <block title="Catalog Sync" name="gs_sync_block">
+                        <setting id="gs_sync_archive_missing_setting"
+                                 title="Archive products no longer in the sheet">
+                            <field name="gs_sync_archive_missing"/>
+                            <div class="content-group">
+                                <div class="mt8">
+                                    After each import, gs_managed products/variants absent
+                                    from the sheet are archived (active=False). Safe and reversible.
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="gs_auto_create_categories_setting"
+                                 title="Automatically create missing product categories">
+                            <field name="gs_auto_create_categories"/>
+                            <div class="content-group">
+                                <div class="mt8">
+                                    Creates nested categories from full paths like
+                                    "Mining Hardware / BTC Miners / Antminer Air Cooling".
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+
+                    <!-- Credentials -->
+                    <block title="Credentials" name="gs_credentials_block">
+                        <setting id="gs_api_key_setting" string="Google Sheets API Key">
+                            <div class="content-group">
+                                <div class="mt8">
+                                    <field name="gs_api_key" class="o_light_label"
+                                           placeholder="AIzaSy…"/>
+                                    <span class="text-muted d-block mt4">
+                                        Read-only key from Google Cloud Console. Sheet must be public.
+                                    </span>
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="gs_spreadsheet_id_setting" string="Spreadsheet ID">
+                            <div class="content-group">
+                                <div class="mt8">
+                                    <field name="gs_spreadsheet_id" class="o_light_label"
+                                           placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms"/>
+                                    <span class="text-muted d-block mt4">
+                                        From the URL: /spreadsheets/d/<b>ID</b>/edit
+                                    </span>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+
+                    <!-- Import options -->
+                    <block title="Import Options" name="gs_options_block">
+                        <setting id="gs_sheet_range_setting" string="Sheet Range (A1 notation)">
+                            <div class="content-group">
+                                <div class="mt8">
+                                    <field name="gs_sheet_range" class="o_light_label"
+                                           placeholder="Sheet1!A:Z"/>
+                                    <span class="text-muted d-block mt4">
+                                        e.g. Sheet1!A:Z or Products!A1:AA500
+                                    </span>
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="gs_stock_location_setting"
+                                 string="Default Stock Location for Qty Updates">
+                            <div class="content-group">
+                                <div class="mt8">
+                                    <field name="gs_stock_location_id" class="o_light_label"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                    <span class="text-muted d-block mt4">
+                                        Defaults to WH/Stock when empty.
+                                    </span>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+
+                    <!-- Action buttons -->
+                    <block title="Actions" name="gs_actions_block">
+                        <setting id="gs_actions_setting">
+                            <div class="content-group mt8 d-flex flex-wrap gap-2">
+                                <button name="action_run_gs_import_now"
+                                        type="object"
+                                        string="Run Import Now"
+                                        class="btn btn-primary"/>
+                                <button name="action_open_gs_scheduled_action"
+                                        type="object"
+                                        string="Edit Scheduled Action"
+                                        class="btn btn-secondary"/>
+                                <button name="action_view_gs_import_logs"
+                                        type="object"
+                                        string="View Import Logs"
+                                        class="btn btn-secondary"/>
+                                <button name="action_open_gs_sheet"
+                                        type="object"
+                                        string="Open Google Sheet"
+                                        class="btn btn-secondary"/>
+                            </div>
+                        </setting>
+                    </block>
+
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
