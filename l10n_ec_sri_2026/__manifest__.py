@@ -42,6 +42,6 @@ No afecta:
     'price': 19.99,
     'currency': 'USD',
     'license': 'LGPL-3',
-    'images': ['static/description/images/chart_of_accounts.png'],
+    'images': ['static/description/images/cover.png'],
     'post_init_hook': 'post_init_hook',
 }

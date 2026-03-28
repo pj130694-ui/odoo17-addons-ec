@@ -18,7 +18,7 @@
         'views/payment_provider_views.xml',
         'data/payment_cron_data.xml',
     ],
-    'images': ['static/description/images/providers_list.png'],
+    'images': ['static/description/images/cover.png'],
     'installable': True,
     'application': False,
     'post_init_hook': 'post_init_hook',

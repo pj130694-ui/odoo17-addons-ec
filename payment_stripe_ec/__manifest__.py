@@ -9,7 +9,7 @@
     'price': 29.99,
     'currency': 'USD',
     'license': 'LGPL-3',
-    'images': ['static/description/images/providers_list.png'],
+    'images': ['static/description/images/cover.png'],
     'auto_install': False,
     'installable': True,
 }

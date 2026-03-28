@@ -17,7 +17,7 @@
         'views/res_config_settings_views.xml',
     ],
     'installable': True,
-    'images': ['static/description/images/product_form.png'],
+    'images': ['static/description/images/cover.png'],
     'application': False,
     'auto_install': False,
     'external_dependencies': {

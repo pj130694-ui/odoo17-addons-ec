@@ -64,7 +64,7 @@ Características principales:
         'views/res_partner.xml',
         'views/report_payment_receipt.xml',
     ],
-    'images': ['static/description/images/upload_dialog.png'],
+    'images': ['static/description/images/cover.png'],
     'installable': True,
     'application': True,
     'auto_install': False,

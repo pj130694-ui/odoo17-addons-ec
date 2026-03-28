@@ -34,7 +34,7 @@
         'views/menu.xml',
     ],
     'installable': True,
-    'images': ['static/description/images/settings.png'],
+    'images': ['static/description/images/cover.png'],
     'application': False,
     'auto_install': False,
 }

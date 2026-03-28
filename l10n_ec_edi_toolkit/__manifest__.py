@@ -26,7 +26,7 @@
         'security/ir.model.access.csv',
         'views/account_move_views.xml',
     ],
-    'images': ['static/description/images/invoice_form.png'],
+    'images': ['static/description/images/cover.png'],
     'installable': True,
     'application': False,
     'auto_install': False,

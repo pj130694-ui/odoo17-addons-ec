@@ -20,7 +20,7 @@
         'views/res_partner_views.xml',
         'views/res_config_settings_views.xml',
     ],
-    'images': ['static/description/images/partner_form.png'],
+    'images': ['static/description/images/cover.png'],
     'installable': True,
     'application': False,
     'auto_install': False,
