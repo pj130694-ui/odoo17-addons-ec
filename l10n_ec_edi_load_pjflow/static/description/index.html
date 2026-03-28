@@ -16,6 +16,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
 .feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #0d6efd; }
 .feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
 .feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.alert-box { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 16px 24px; margin: 0 40px 24px; font-size: 14px; color: #856404; }
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .step { text-align: center; padding: 28px 16px; }
 .step-number { width: 46px; height: 46px; border-radius: 50%; background: #0d6efd; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
@@ -30,48 +31,67 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
 </style>
 </head>
 <body>
+
+<!-- COVER IMAGE for Odoo Apps Store -->
+<div style="text-align:center;background:#0d6efd;padding:0;">
+    <img src="images/invoices_list.png" alt="Ecuador EDI Loader - Importación TXT y XML del SRI"
+         style="width:100%;max-width:100%;display:block;"/>
+</div>
+
 <div class="hero">
     <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
-    <h1>Ecuador EDI Loader — Facturación Electrónica SRI</h1>
-    <p>Envía y recibe comprobantes electrónicos al SRI directamente desde Odoo 17 con firma digital p12.</p>
+    <h1>Ecuador EDI Loader — Importador TXT/XML del SRI</h1>
+    <p>Importa masivamente retenciones y comprobantes electrónicos desde archivos TXT y XML del SRI directamente en Odoo 17. Elimina la carga manual de datos y reduce errores contables.</p>
 </div>
 <div class="compat">
     <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
 </div>
+<div class="alert-box">
+    <strong>&#9432; ¿Qué hace este módulo?</strong> Importa los archivos <strong>TXT y XML</strong> que el SRI genera para tus comprobantes recibidos (retenciones de clientes, facturas de proveedores) y los registra automáticamente en Odoo como asientos contables, sin necesidad de ingreso manual.
+</div>
 <div class="section">
     <div class="section-title">&#10024; Funcionalidades principales</div>
-    <div class="features-grid"><div class="feature-card"><h3>📄 Facturación electrónica SRI</h3><p>Genera, firma y envía facturas, notas de crédito y retenciones al SRI automáticamente.</p></div><div class="feature-card"><h3>🔏 Firma digital p12</h3><p>Gestiona tu certificado de firma electrónica directamente desde Odoo.</p></div><div class="feature-card"><h3>📥 Importación de XML</h3><p>Carga XML de comprobantes recibidos y crea facturas de proveedor automáticamente.</p></div><div class="feature-card"><h3>✅ Autorización en tiempo real</h3><p>Consulta el estado de autorización del SRI y actualiza los documentos.</p></div><div class="feature-card"><h3>📊 Reportes ATS</h3><p>Genera el Anexo Transaccional Simplificado para declaración mensual.</p></div><div class="feature-card"><h3>🔄 Reintentos automáticos</h3><p>Si el SRI no responde, el sistema reintenta la autorización automáticamente.</p></div></div>
+    <div class="features-grid">
+        <div class="feature-card"><h3>&#128196; Importación de archivos TXT del SRI</h3><p>Carga masiva de retenciones en el formato TXT que genera el SRI. Crea automáticamente los asientos de retención en Odoo con todos sus impuestos y bases.</p></div>
+        <div class="feature-card"><h3>&#128196; Importación de XML electrónicos</h3><p>Procesa comprobantes electrónicos XML del SRI: facturas de proveedor, notas de crédito, notas de débito y retenciones recibidas.</p></div>
+        <div class="feature-card"><h3>&#128203; Retenciones con y sin factura</h3><p>Registra retenciones vinculadas a una factura existente o crea retenciones independientes cuando el comprobante aún no está en Odoo.</p></div>
+        <div class="feature-card"><h3>&#128179; Retenciones de tarjeta de crédito</h3><p>Procesa y registra automáticamente las retenciones bancarias de tarjeta de crédito como asientos contables en el diario correspondiente.</p></div>
+        <div class="feature-card"><h3>&#128203; Registro de cheques PDC</h3><p>Botón "Register PDC Cheque" en facturas para registrar cheques posfechados (PDC) directamente desde el formulario de la factura.</p></div>
+        <div class="feature-card"><h3>&#9989; Columna PDC Status en lista</h3><p>La lista de facturas muestra el estado del cheque posfechado (PDC) de cada documento para control rápido del flujo de cobros.</p></div>
+        <div class="feature-card"><h3>&#128683; Solicitar cancelación EDI al SRI</h3><p>Gestiona la solicitud de anulación de comprobantes electrónicos ante el SRI directamente desde el formulario de la factura en Odoo.</p></div>
+        <div class="feature-card"><h3>&#128260; Restablecer documentos anulados</h3><p>Permite devolver al estado correcto facturas que fueron anuladas en el SRI, sincronizando el estado EDI con la realidad del registro oficial.</p></div>
+    </div>
 </div>
 <hr class="divider"/>
 <div class="section">
     <div class="section-title">&#128640; Cómo funciona</div>
-    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Carga tu certificado p12</h3><p>Ve a Contabilidad → Configuración → Certificado Electrónico.</p></div><div class="step"><div class="step-number">2</div><h3>Configura la empresa</h3><p>Ingresa RUC, dirección y datos de la empresa para los comprobantes.</p></div><div class="step"><div class="step-number">3</div><h3>Emite facturas</h3><p>Crea facturas normalmente — el envío al SRI ocurre al confirmar.</p></div></div>
+    <div class="steps">
+        <div class="step"><div class="step-number">1</div><h3>Descarga el TXT o XML del SRI</h3><p>Desde el portal del SRI descarga el archivo TXT de retenciones o el XML del comprobante electrónico recibido.</p></div>
+        <div class="step"><div class="step-number">2</div><h3>Importa en Odoo</h3><p>Ve a Contabilidad → Importar Documentos SRI, sube el archivo y el módulo procesa cada línea automáticamente.</p></div>
+        <div class="step"><div class="step-number">3</div><h3>Revisa los asientos creados</h3><p>El módulo crea las retenciones, facturas o asientos correspondientes. Verifica el resultado en el reporte de importación.</p></div>
+    </div>
 </div>
 <hr class="divider"/>
-<div class="tags"><span class="tag">Ecuador</span><span class="tag">SRI</span><span class="tag">EDI</span><span class="tag">Facturación Electrónica</span><span class="tag">Retenciones</span><span class="tag">ATS</span><span class="tag">p12</span></div>
-<div class="footer">
-    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
-</div>
 
-    <!-- SCREENSHOTS -->
-    <section style="background:#fff;padding:48px 40px;">
-      <h2 style="text-align:center;font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:32px;">
-        Capturas de pantalla
-      </h2>
-      
-        <div style="text-align:center;">
-            <img src="images/invoices_list.png" alt="Lista de facturas con columna PDC Status y estado EDI"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Lista de facturas con columna PDC Status y estado EDI</p>
-        </div>
-        <div style="text-align:center;">
-            <img src="images/invoice_form.png" alt="Formulario de factura con botones EDI SRI: Solicitar cancelación, Restablecer, Crear Ticket"
-                 style="width:100%;max-width:900px;border-radius:8px;
-                        box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
-            <p style="color:#666;font-size:13px;margin:0 0 24px;">Formulario de factura con flujo EDI SRI completo</p>
-        </div>
-    </section>
-    <!-- /SCREENSHOTS -->
+<!-- SCREENSHOTS -->
+<section style="background:#fff;padding:48px 40px;">
+  <h2 style="text-align:center;font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:32px;">Capturas de pantalla</h2>
+  <div style="text-align:center;">
+    <img src="images/invoices_list.png" alt="Lista de facturas con columna PDC Status"
+         style="width:100%;max-width:900px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
+    <p style="color:#666;font-size:13px;margin:0 0 24px;">Lista de facturas con columna PDC Status y estado de registro EDI</p>
+  </div>
+  <div style="text-align:center;">
+    <img src="images/invoice_form.png" alt="Formulario de factura con botones Register PDC Cheque, Solicitar cancelación EDI, Restablecer"
+         style="width:100%;max-width:900px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.15);margin-bottom:8px;"/>
+    <p style="color:#666;font-size:13px;margin:0 0 24px;">Formulario de factura con los botones de gestion EDI: Register PDC Cheque, Cancelacion SRI, Restablecer</p>
+  </div>
+</section>
+<!-- /SCREENSHOTS -->
+
+<div class="tags"><span class="tag">Ecuador</span><span class="tag">SRI</span><span class="tag">Importar TXT</span><span class="tag">Importar XML</span><span class="tag">Retenciones</span><span class="tag">PDC</span><span class="tag">Cheques Posfechados</span><span class="tag">EDI</span><span class="tag">Facturacion Electronica</span></div>
+<div class="footer">
+    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte tecnico disponible &nbsp;|&nbsp; Odoo 17.0
+</div>
 </body>
 </html>
