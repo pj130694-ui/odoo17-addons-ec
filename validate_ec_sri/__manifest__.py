@@ -4,7 +4,7 @@
     'category': 'Accounting/Localizations',
     'summary': 'Valida cédula/RUC y autocompleta datos del contacto consultando el SRI y Registro Civil',
     'author': 'PJFlow.io',
-    'website': 'https://trionica.ec',
+    'website': 'https://consultas.ec',
     'price': 0,
     'currency': 'USD',
     'license': 'LGPL-3',
