@@ -4,6 +4,8 @@
 {
     'name': 'Herramientas EDI Ecuador (Toolkit)',
     'version': '17.0.1.0.0',
+    'author': 'PJFlow.io',
+    'website': 'https://pjflow.io',
     'summary': (
         'Botón "Pasar a borrador" seguro para facturas EC '
         'y gestión de errores de autorización SRI.'

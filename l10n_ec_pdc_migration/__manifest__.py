@@ -1,6 +1,8 @@
 {
     'name': 'Ecuador PDC Migration (Odoo 16 → 17)',
     'version': '17.0.1.0.0',
+    'author': 'PJFlow.io',
+    'website': 'https://pjflow.io',
     'category': 'Accounting',
     'summary': 'Migración de cheques ec_payment_check (Odoo 16) a sh_pdc (Odoo 17)',
     'depends': ['sh_pdc', 'sh_pdc_trionica_check_printing'],

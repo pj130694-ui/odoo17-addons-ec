@@ -1,8 +1,12 @@
 {
     "name": "Produbanco Cheque Layout (account_check_printing)",
     "version": "17.0.1.0.0",
+    "author": "PJFlow.io",
+    "website": "https://pjflow.io",
     "category": "Accounting",
     "summary": "Cheque printing layout for Produbanco (Ecuador) using account_check_printing",
+    "price": 19.99,
+    "currency": "USD",
     "depends": ["account_check_printing"],
     "data": [
         # Core report definitions and paper format

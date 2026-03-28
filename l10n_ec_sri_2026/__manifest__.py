@@ -1,6 +1,8 @@
 {
     'name': 'Ecuador SRI - NAC-DGERCGC26-00000009',
     'version': '17.0.1.0.0',
+    'author': 'PJFlow.io',
+    'website': 'https://pjflow.io',
     'category': 'Accounting/Localizations/Ecuador',
     'summary': (
         'Actualiza impuestos de retención IR según resolución SRI '

@@ -1,6 +1,8 @@
 {
     'name': 'Google Sheet Product Importer',
     'version': '17.0.2.1.2',
+    'author': 'PJFlow.io',
+    'website': 'https://pjflow.io',
     'summary': 'Sync product variants from Google Sheets — with catalog archiving',
     'description': """
         Creates, updates, and archives product templates/variants by reading rows
