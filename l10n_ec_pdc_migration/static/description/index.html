@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #2d3748; background: #fff; }
+.hero { background: linear-gradient(135deg, #6610f2 0%, #3900c5 100%); color: #fff; padding: 60px 40px; text-align: center; }
+.hero .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+.hero p { font-size: 17px; opacity: 0.92; max-width: 650px; margin: 0 auto; line-height: 1.6; }
+.compat { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 14px 24px; margin: 24px 40px; font-size: 14px; color: #276749; }
+.section { padding: 44px 40px; max-width: 900px; margin: 0 auto; }
+.section-title { font-size: 22px; font-weight: 700; color: #6610f2; margin-bottom: 28px; text-align: center; }
+.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #6610f2; }
+.feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
+.feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.step { text-align: center; padding: 28px 16px; }
+.step-number { width: 46px; height: 46px; border-radius: 50%; background: #6610f2; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.step h3 { font-size: 14px; font-weight: 600; margin-bottom: 7px; }
+.step p { font-size: 13px; color: #4a5568; line-height: 1.5; }
+.divider { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
+.tags { text-align: center; padding: 28px 40px; }
+.tag { display: inline-block; background: #edf2ff; color: #6610f2; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
+.footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
+.footer strong { color: #fff; }
+.footer a { color: #6610f2; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero">
+    <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
+    <h1>Ecuador PDC — Migración de Odoo 16 a 17</h1>
+    <p>Migra tus cheques posfechados (PDC) de Odoo 16 a Odoo 17 sin perder datos ni historial.</p>
+</div>
+<div class="compat">
+    <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
+</div>
+<div class="section">
+    <div class="section-title">&#10024; Funcionalidades principales</div>
+    <div class="features-grid"><div class="feature-card"><h3>🔄 Migración automática</h3><p>Detecta y migra los registros PDC de Odoo 16 al nuevo formato de Odoo 17.</p></div><div class="feature-card"><h3>📋 Sin pérdida de datos</h3><p>Preserva fechas, montos, estados y toda la información de los cheques.</p></div><div class="feature-card"><h3>✅ Validación previa</h3><p>Verifica la integridad de los datos antes de migrar para evitar errores.</p></div><div class="feature-card"><h3>📊 Reporte de migración</h3><p>Genera un informe detallado de los registros migrados y cualquier incidencia.</p></div><div class="feature-card"><h3>🔒 Proceso seguro</h3><p>Migración no destructiva con opción de verificación antes de confirmar.</p></div><div class="feature-card"><h3>⚡ Wizard paso a paso</h3><p>Interfaz guiada simple para completar la migración sin conocimientos técnicos.</p></div></div>
+</div>
+<hr class="divider"/>
+<div class="section">
+    <div class="section-title">&#128640; Cómo funciona</div>
+    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Instala en Odoo 17</h3><p>Instala el módulo después de migrar tu base de datos de 16 a 17.</p></div><div class="step"><div class="step-number">2</div><h3>Ejecuta el wizard</h3><p>Ve a Contabilidad → Herramientas → Migrar PDC y sigue las instrucciones.</p></div><div class="step"><div class="step-number">3</div><h3>Verifica resultados</h3><p>Revisa el reporte de migración y confirma que todos los cheques estén correctos.</p></div></div>
+</div>
+<hr class="divider"/>
+<div class="tags"><span class="tag">Ecuador</span><span class="tag">PDC</span><span class="tag">Migración</span><span class="tag">Cheques posfechados</span><span class="tag">Odoo 16</span><span class="tag">Odoo 17</span></div>
+<div class="footer">
+    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
+</div>
+</body>
+</html>

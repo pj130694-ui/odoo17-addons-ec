@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #2d3748; background: #fff; }
+.hero { background: linear-gradient(135deg, #dc3545 0%, #af0818 100%); color: #fff; padding: 60px 40px; text-align: center; }
+.hero .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+.hero p { font-size: 17px; opacity: 0.92; max-width: 650px; margin: 0 auto; line-height: 1.6; }
+.compat { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 14px 24px; margin: 24px 40px; font-size: 14px; color: #276749; }
+.section { padding: 44px 40px; max-width: 900px; margin: 0 auto; }
+.section-title { font-size: 22px; font-weight: 700; color: #dc3545; margin-bottom: 28px; text-align: center; }
+.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #dc3545; }
+.feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
+.feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.step { text-align: center; padding: 28px 16px; }
+.step-number { width: 46px; height: 46px; border-radius: 50%; background: #dc3545; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.step h3 { font-size: 14px; font-weight: 600; margin-bottom: 7px; }
+.step p { font-size: 13px; color: #4a5568; line-height: 1.5; }
+.divider { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
+.tags { text-align: center; padding: 28px 40px; }
+.tag { display: inline-block; background: #edf2ff; color: #dc3545; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
+.footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
+.footer strong { color: #fff; }
+.footer a { color: #dc3545; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero">
+    <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
+    <h1>Ecuador SRI — Actualización Resolución 2026</h1>
+    <p>Actualización de tablas impositivas según la Resolución NAC-DGERCGC26-00000009 del SRI Ecuador.</p>
+</div>
+<div class="compat">
+    <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
+</div>
+<div class="section">
+    <div class="section-title">&#10024; Funcionalidades principales</div>
+    <div class="features-grid"><div class="feature-card"><h3>📋 Resolución NAC-DGERCGC26-00000009</h3><p>Aplica los cambios impositivos vigentes desde 2026 según resolución oficial del SRI.</p></div><div class="feature-card"><h3>🔄 Actualización de tablas</h3><p>Actualiza automáticamente las tablas de retenciones y porcentajes de IVA.</p></div><div class="feature-card"><h3>✅ Compatible con l10n_ec</h3><p>Funciona sobre la localización oficial de Ecuador para Odoo 17.</p></div><div class="feature-card"><h3>🚀 Instalación simple</h3><p>Solo instala el módulo — aplica los cambios sin configuración adicional.</p></div><div class="feature-card"><h3>📊 Sin pérdida de datos</h3><p>La actualización es no destructiva, preserva toda la información existente.</p></div><div class="feature-card"><h3>🔒 Normativa oficial</h3><p>Basado en la resolución publicada por el SRI en el Registro Oficial.</p></div></div>
+</div>
+<hr class="divider"/>
+<div class="section">
+    <div class="section-title">&#128640; Cómo funciona</div>
+    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Instala el módulo</h3><p>Instala desde Odoo Apps o sube el módulo a tu servidor.</p></div><div class="step"><div class="step-number">2</div><h3>Actualización automática</h3><p>El módulo aplica los cambios impositivos al instalar.</p></div><div class="step"><div class="step-number">3</div><h3>Verifica las tablas</h3><p>Revisa en Contabilidad → Configuración → Impuestos los valores actualizados.</p></div></div>
+</div>
+<hr class="divider"/>
+<div class="tags"><span class="tag">Ecuador</span><span class="tag">SRI</span><span class="tag">Impuestos</span><span class="tag">Retenciones</span><span class="tag">2026</span><span class="tag">Localización</span></div>
+<div class="footer">
+    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
+</div>
+</body>
+</html>

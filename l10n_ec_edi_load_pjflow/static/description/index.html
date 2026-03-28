@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #2d3748; background: #fff; }
+.hero { background: linear-gradient(135deg, #0d6efd 0%, #0041d0 100%); color: #fff; padding: 60px 40px; text-align: center; }
+.hero .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+.hero p { font-size: 17px; opacity: 0.92; max-width: 650px; margin: 0 auto; line-height: 1.6; }
+.compat { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 14px 24px; margin: 24px 40px; font-size: 14px; color: #276749; }
+.section { padding: 44px 40px; max-width: 900px; margin: 0 auto; }
+.section-title { font-size: 22px; font-weight: 700; color: #0d6efd; margin-bottom: 28px; text-align: center; }
+.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.feature-card { background: #f8f9fa; border-radius: 10px; padding: 22px; border-left: 4px solid #0d6efd; }
+.feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 7px; color: #1a202c; }
+.feature-card p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.step { text-align: center; padding: 28px 16px; }
+.step-number { width: 46px; height: 46px; border-radius: 50%; background: #0d6efd; color: #fff; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.step h3 { font-size: 14px; font-weight: 600; margin-bottom: 7px; }
+.step p { font-size: 13px; color: #4a5568; line-height: 1.5; }
+.divider { border: none; border-top: 1px solid #e2e8f0; margin: 0 40px; }
+.tags { text-align: center; padding: 28px 40px; }
+.tag { display: inline-block; background: #edf2ff; color: #0d6efd; border-radius: 20px; padding: 5px 14px; font-size: 12px; margin: 3px; font-weight: 500; }
+.footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 28px; font-size: 13px; }
+.footer strong { color: #fff; }
+.footer a { color: #0d6efd; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="hero">
+    <div class="badge">PJFlow.io &middot; Odoo 17 &middot; Ecuador &#127466;&#127464;</div>
+    <h1>Ecuador EDI Loader — Facturación Electrónica SRI</h1>
+    <p>Envía y recibe comprobantes electrónicos al SRI directamente desde Odoo 17 con firma digital p12.</p>
+</div>
+<div class="compat">
+    <strong>&#10003; Compatibilidad:</strong> Odoo <strong>17.0 Community &amp; Enterprise</strong> &nbsp;|&nbsp; Ecuador &#127466;&#127464; &nbsp;|&nbsp; Autor: <strong>PJFlow.io</strong>
+</div>
+<div class="section">
+    <div class="section-title">&#10024; Funcionalidades principales</div>
+    <div class="features-grid"><div class="feature-card"><h3>📄 Facturación electrónica SRI</h3><p>Genera, firma y envía facturas, notas de crédito y retenciones al SRI automáticamente.</p></div><div class="feature-card"><h3>🔏 Firma digital p12</h3><p>Gestiona tu certificado de firma electrónica directamente desde Odoo.</p></div><div class="feature-card"><h3>📥 Importación de XML</h3><p>Carga XML de comprobantes recibidos y crea facturas de proveedor automáticamente.</p></div><div class="feature-card"><h3>✅ Autorización en tiempo real</h3><p>Consulta el estado de autorización del SRI y actualiza los documentos.</p></div><div class="feature-card"><h3>📊 Reportes ATS</h3><p>Genera el Anexo Transaccional Simplificado para declaración mensual.</p></div><div class="feature-card"><h3>🔄 Reintentos automáticos</h3><p>Si el SRI no responde, el sistema reintenta la autorización automáticamente.</p></div></div>
+</div>
+<hr class="divider"/>
+<div class="section">
+    <div class="section-title">&#128640; Cómo funciona</div>
+    <div class="steps"><div class="step"><div class="step-number">1</div><h3>Carga tu certificado p12</h3><p>Ve a Contabilidad → Configuración → Certificado Electrónico.</p></div><div class="step"><div class="step-number">2</div><h3>Configura la empresa</h3><p>Ingresa RUC, dirección y datos de la empresa para los comprobantes.</p></div><div class="step"><div class="step-number">3</div><h3>Emite facturas</h3><p>Crea facturas normalmente — el envío al SRI ocurre al confirmar.</p></div></div>
+</div>
+<hr class="divider"/>
+<div class="tags"><span class="tag">Ecuador</span><span class="tag">SRI</span><span class="tag">EDI</span><span class="tag">Facturación Electrónica</span><span class="tag">Retenciones</span><span class="tag">ATS</span><span class="tag">p12</span></div>
+<div class="footer">
+    Desarrollado por <strong>PJFlow.io</strong> — <a href="https://pjflow.io">pjflow.io</a> &nbsp;|&nbsp; Soporte técnico disponible &nbsp;|&nbsp; Odoo 17.0
+</div>
+</body>
+</html>
