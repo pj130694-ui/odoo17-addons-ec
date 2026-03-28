@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="payment_provider_binance" model="payment.provider">
+        <field name="name">Binance Pay</field>
+        <field name="code">binance</field>
+        <field name="state">disabled</field>
+        <field name="is_published">False</field>
+        <field name="sequence">50</field>
+        <field name="redirect_form_view_id" ref="payment_binance.redirect_form"/>
+        <field name="payment_method_ids"
+               eval="[Command.set([
+                         ref('payment_binance.payment_method_binance'),
+                     ])]"
+        />
+    </record>
+
+</odoo>

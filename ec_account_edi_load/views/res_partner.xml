@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="ec_account_edi_load_partner_view">
+			<field name="name">ec.account.edi.load.partner.view</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="account.view_partner_property_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='property_account_position_id']" position="after">
+					<field name="is_bank_partner" />
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</odoo>
+

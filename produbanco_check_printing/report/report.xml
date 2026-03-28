@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Paperformat: adjust page_width/page_height (mm) to match the real cheque -->
+    <record id="paperformat_produbanco_check" model="report.paperformat">
+        <field name="name">Produbanco Check</field>
+        <field name="default" eval="False"/>
+        <field name="format">custom</field>
+        <field name="page_height">102</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="dpi">90</field>
+        <field name="disable_shrinking" eval="True"/>
+    </record>
+
+    <!-- Report action (binds to account.payment) -->
+    <record id="report_check_produbanco" model="ir.actions.report">
+        <field name="name">Cheque Produbanco</field>
+        <field name="model">account.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">produbanco_check_printing.report_produbanco_check_document</field>
+        <field name="report_file">produbanco_check_printing.report_produbanco_check_document</field>
+        <field name="paperformat_id" ref="produbanco_check_printing.paperformat_produbanco_check"/>
+        <field name="binding_model_id" ref="account.model_account_payment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Report action for Trionica cheque -->
+    <record id="report_check_trionica" model="ir.actions.report">
+        <field name="name">Cheque Trionica</field>
+        <field name="model">account.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">produbanco_check_printing.report_trionica_check_document</field>
+        <field name="report_file">produbanco_check_printing.report_trionica_check_document</field>
+        <field name="paperformat_id" ref="produbanco_check_printing.paperformat_produbanco_check"/>
+        <field name="binding_model_id" ref="account.model_account_payment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Report action for Pacífico cheque -->
+    <record id="report_check_pacifico" model="ir.actions.report">
+        <field name="name">Cheque Pacífico</field>
+        <field name="model">account.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">produbanco_check_printing.report_pacifico_check_document</field>
+        <field name="report_file">produbanco_check_printing.report_pacifico_check_document</field>
+        <field name="paperformat_id" ref="produbanco_check_printing.paperformat_produbanco_check"/>
+        <field name="binding_model_id" ref="account.model_account_payment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="report_trionica_check_document">
+    <t t-call="web.html_container" t-lang="'es_EC'">
+      <t t-foreach="docs" t-as="o">
+        <t t-call="produbanco_check_printing.report_trionica_check"/>
+      </t>
+    </t>
+  </template>
+
+  <template id="report_trionica_check" name="Cheque Trionica" t-name="produbanco_check_printing.report_trionica_check">
+
+    <style>
+      .trio-reset, .trio-reset *{
+        writing-mode: horizontal-tb !important;
+        text-orientation: mixed !important;
+        direction: ltr !important;
+        unicode-bidi: plaintext !important;
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
+        word-wrap: normal !important;
+        hyphens: none !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
+      }
+    </style>
+
+    <div class="page" style="margin-top:-5px; font-size:14px;">
+      <div class="trio-reset" style="position:relative; width:210mm; height:90mm; overflow:hidden;">
+
+        <!-- Línea 1: Beneficiario -->
+        <div style="position:absolute; top:24mm; left:57mm; width:120mm; overflow:hidden;">
+          <span t-esc="o.check_beneficiary_name_upper()"/>
+        </div>
+
+        <!-- Línea 1: Monto -->
+        <div style="position:absolute; top:24mm; left:177mm; width:40mm; overflow:hidden; text-align:left;">
+          <span>**$ </span><span t-esc="o.check_amount_num_es()"/>
+        </div>
+
+        <!-- Línea 2: Monto en letras -->
+        <div style="position:absolute; top:32mm; left:55mm; width:165mm; overflow:hidden;">
+          <span t-esc="o.check_trionica_amount_words_line()"/>
+        </div>
+
+        <!-- Línea 3: Ciudad + Fecha -->
+        <div style="position:absolute; top:46mm; left:52mm; width:165mm; overflow:hidden;">
+          <span t-esc="o.company_id.partner_id.city"/><span>, </span>
+          <span t-esc="o.check_payment_date_str()"/>
+        </div>
+
+      </div>
+    </div>
+
+  </template>
+
+</odoo>

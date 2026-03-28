@@ -1,0 +1,48 @@
+<odoo>
+
+    <record id="res_config_settings_view_form_ai_enrichment" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.ai.enrichment</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Enriquecimiento IA" name="product_ai_enrichment"
+                     groups="base.group_system">
+
+                    <block title="OpenAI — Descripciones (GPT-4o)"
+                           help="Genera descripciones de venta profesionales con IA. Costo: ~$0.002 USD por descripción.">
+                        <setting string="OpenAI API Key"
+                                 help="Obtén tu clave en platform.openai.com/api-keys">
+                            <field name="openai_api_key" password="True"
+                                   placeholder="sk-proj-..." class="w-75"/>
+                        </setting>
+                    </block>
+
+                    <block title="Imágenes — Serper.dev (Google Images)"
+                           help="Busca imágenes reales del producto en Google. Gratis: 2500 búsquedas. Si no está configurado, usa Pixabay como respaldo.">
+                        <setting string="Serper API Key"
+                                 help="Gratis en serper.dev — 2500 búsquedas incluidas">
+                            <field name="serper_api_key" password="True"
+                                   placeholder="Clave de serper.dev..." class="w-75"/>
+                        </setting>
+                        <setting string="Pixabay API Key (respaldo)"
+                                 help="Se usa solo si no hay Serper key. Gratis en pixabay.com/api/docs">
+                            <field name="pixabay_api_key" password="True"
+                                   placeholder="Clave de pixabay.com..." class="w-75"/>
+                        </setting>
+                    </block>
+
+                    <block title="Rendimiento del cron"
+                           help="El cron se ejecuta cada 2 horas y procesa productos sin imagen.">
+                        <setting string="Productos por ciclo"
+                                 help="Recomendado: 20-50 productos por ciclo.">
+                            <field name="enrichment_batch_size"/>
+                        </setting>
+                    </block>
+
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

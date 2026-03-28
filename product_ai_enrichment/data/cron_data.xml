@@ -1,0 +1,17 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="ir_cron_product_ai_enrichment" model="ir.cron">
+            <field name="name">Enriquecimiento IA de Productos (imágenes + descripciones)</field>
+            <field name="model_id" ref="product_ai_enrichment.model_product_enrichment_log"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_enrich_products()</field>
+            <field name="interval_number">2</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="active">True</field>
+            <field name="doall">False</field>
+        </record>
+
+    </data>
+</odoo>

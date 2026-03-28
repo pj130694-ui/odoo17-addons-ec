@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_validate_ec_sri" model="ir.ui.view">
+        <field name="name">res.config.settings.validate_ec_sri</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="SRI Ecuador" name="validate_ec_sri"
+                     data-string="Validación Ecuador SRI / RC"
+                     groups="base.group_system">
+                    <block title="API de Consultas (Cédula / RUC)" name="validate_ec_sri_api_block">
+                        <setting string="URL del API" help="URL base del servicio. Ej: https://cedula.trionica.ec">
+                            <field name="validate_ec_sri_api_url"
+                                   placeholder="https://cedula.trionica.ec"/>
+                        </setting>
+                        <setting string="Token de Acceso"
+                                 help="Token ADMIN_TOKEN del API (X-Credits-Token). No consume créditos.">
+                            <field name="validate_ec_sri_api_token"
+                                   password="True"
+                                   placeholder="Token admin del API"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

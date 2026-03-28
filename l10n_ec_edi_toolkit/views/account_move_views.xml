@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--
+            Vista: Herramientas EDI Ecuador — Formulario de facturas
+            Hereda de: account.view_move_form
+
+            PATRÓN ODOO 17 — SIN campos booleanos computados:
+            Los invisible= de los botones usan solo campos STORED
+            (country_code, state, move_type, l10n_ec_edi_retry_not_before)
+            que siempre están en el fields_dict enviado al cliente OWL.
+
+            Sección 1: botones en <header>
+            Sección 2: campo l10n_ec_edi_retry_not_before en <sheet>
+        -->
+        <record id="view_move_form_l10n_ec_edi_toolkit" model="ir.ui.view">
+            <field name="name">account.move.form.l10n.ec.edi.toolkit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                <!-- ══════════════════════════════════════════════════════════
+                     SECCIÓN 1 — BOTONES EN HEADER
+                     invisible= usa SOLO campos stored para evitar el error OWL
+                     "field is undefined" en Odoo 17.
+                     ══════════════════════════════════════════════════════════ -->
+                <button name="button_draft" position="after">
+
+                    <!-- Botón A: Pasar a Borrador con validaciones Ecuador
+                         Visible: EC + posted + tipo factura/nota de crédito    -->
+                    <button
+                        name="action_l10n_ec_toolkit_reset_to_draft"
+                        string="Pasar a Borrador"
+                        type="object"
+                        class="btn-warning"
+                        groups="l10n_ec_edi_toolkit.group_ec_edi_toolkit_manager"
+                        invisible="country_code != 'EC' or state != 'posted' or move_type not in ('out_invoice', 'in_invoice', 'out_refund', 'in_refund')"
+                        title="Pasar a borrador con validaciones: SRI, retenciones, pagos y estado EDI"
+                    />
+
+                    <!-- Botón B: Limpiar Error SRI
+                         Visible: EC + posted + sin fecha de espera activa
+                         (si no hay error EDI real, la acción lo informa)       -->
+                    <button
+                        name="action_l10n_ec_toolkit_clear_sri_error"
+                        string="Limpiar Error SRI"
+                        type="object"
+                        class="btn-secondary"
+                        groups="l10n_ec_edi_toolkit.group_ec_edi_toolkit_manager"
+                        invisible="country_code != 'EC' or state != 'posted' or l10n_ec_edi_retry_not_before"
+                        title="Limpia error de envío SRI. Si es límite diario, establece fecha de espera."
+                        confirm="¿Limpiar el error SRI en este documento?&#10;&#10;• Si fue 'límite de intentos diarios': se establecerá espera automática hasta mañana.&#10;• Si fue error de red o timeout: se habilita reintento inmediato.&#10;&#10;Esta acción queda registrada en el historial."
+                    />
+
+                    <!-- Botón D: Restablecer a borrador (factura anulada en portal SRI)
+                         Visible: EC + con clave de acceso + estado posted o cancel
+                         SOLO usar cuando la anulación ya fue tramitada en sri.gob.ec -->\n                    <button
+                        name="action_l10n_ec_force_draft_annulled"
+                        string="Restablecer (Anulado SRI)"
+                        type="object"
+                        class="btn-warning"
+                        groups="l10n_ec_edi_toolkit.group_ec_edi_toolkit_manager"
+                        invisible="not l10n_ec_authorization_number or state not in ('posted','cancel')"
+                        title="Fuerza el paso a borrador omitiendo la verificación del SRI. Usar SOLO si la anulación ya fue tramitada en el portal sri.gob.ec."
+                        confirm="¿Confirma que este documento ya fue anulado en el portal sri.gob.ec?&#10;&#10;• Solo continúe si ya tramitó la anulación.&#10;• El documento pasará a borrador sin consultar al SRI.&#10;&#10;Esta acción no puede deshacerse fácilmente."
+                    />
+
+                    <!-- Botón C: Reintentar Envío al SRI
+                         Visible: EC + posted + fecha de espera establecida
+                         (si aún no expiró, la acción informa la fecha mínima) -->
+                    <button
+                        name="action_l10n_ec_toolkit_enable_retry"
+                        string="Reintentar Envío al SRI"
+                        type="object"
+                        class="btn-primary"
+                        groups="l10n_ec_edi_toolkit.group_ec_edi_toolkit_manager"
+                        invisible="country_code != 'EC' or state != 'posted' or not l10n_ec_edi_retry_not_before"
+                        title="Habilita reintento de envío al SRI tras espera por límite diario."
+                        confirm="¿Reintentar el envío al SRI?&#10;&#10;Si aún no han pasado 24 horas desde el último intento fallido, se le informará la fecha mínima."
+                    />
+
+                </button>
+
+                <!-- ══════════════════════════════════════════════════════════
+                     SECCIÓN 2 — CAMPO EN SHEET BODY (patrón Odoo 17)
+                     Anchor: show_reset_to_draft_button (L849 del standard).
+                     Solo l10n_ec_edi_retry_not_before (stored Datetime):
+                     siempre en BD → siempre en fields_dict → sin errores OWL.
+                     ══════════════════════════════════════════════════════════ -->
+                <field name="show_reset_to_draft_button" position="after">
+
+                    <!-- Campo informativo: fecha de espera de reintento SRI
+                         Visible solo cuando hay una espera activa            -->
+                    <field
+                        name="l10n_ec_edi_retry_not_before"
+                        invisible="not l10n_ec_edi_retry_not_before"
+                        string="Reintento SRI habilitado desde"
+                        widget="datetime"
+                    />
+
+                    <!-- Campo: Código de Sustento ATS override por factura
+                         Visible solo en facturas de compra Ecuador           -->
+                    <field
+                        name="l10n_ec_tax_support_override"
+                        invisible="move_type not in ('in_invoice', 'in_refund') or country_code != 'EC'"
+                        string="Cód. Sustento ATS"
+                        optional="show"
+                    />
+
+                </field>
+
+            </field>
+        </record>
+    </data>
+</odoo>

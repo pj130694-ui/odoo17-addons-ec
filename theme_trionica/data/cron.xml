@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ir_cron_trionica_news_bot" model="ir.cron">
+        <field name="name">Trionica: Auto-publicar noticias tech</field>
+        <field name="model_id" ref="base.model_res_lang"/>
+        <field name="state">code</field>
+        <field name="code">env['trionica.news.fetcher'].fetch_and_publish()</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+        <field name="nextcall" eval="(DateTime.now().replace(hour=6, minute=0, second=0)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="priority">10</field>
+    </record>
+
+</odoo>

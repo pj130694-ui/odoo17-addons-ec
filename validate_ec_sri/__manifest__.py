@@ -1,0 +1,24 @@
+{
+    'name': 'Ecuador SRI/RC - Validación y Autocompletado de Contactos',
+    'version': '17.0.1.0.0',
+    'category': 'Accounting/Localizations',
+    'summary': 'Valida cédula/RUC y autocompleta datos del contacto consultando el SRI y Registro Civil',
+    'author': 'PJFlow.io',
+    'website': 'https://trionica.ec',
+    'license': 'LGPL-3',
+    'depends': [
+        'base',
+        'account',
+        'l10n_latam_base',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/data.xml',
+        'views/validate_ec_sri_name_wizard_views.xml',
+        'views/res_partner_views.xml',
+        'views/res_config_settings_views.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+}

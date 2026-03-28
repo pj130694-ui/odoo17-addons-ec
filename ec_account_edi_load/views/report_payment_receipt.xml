@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Override del recibo de pago: baja el título y agrega contacto del cliente -->
+    <template id="report_payment_receipt_document_ec"
+              inherit_id="account.report_payment_receipt_document">
+
+        <!-- Bajar el título para que no solape con el logo -->
+        <xpath expr="//h3" position="attributes">
+            <attribute name="style">margin-top: 50px;</attribute>
+        </xpath>
+
+        <!-- Agregar fila de contacto DESPUÉS de la fila cliente/método de pago
+             usando /.. para subir al div padre (el row) y hacer position=after -->
+        <xpath expr="//div[@name='payment_method']/.." position="after">
+            <div class="row mt-1" t-if="o.partner_id and (o.partner_id.phone or o.partner_id.mobile or o.partner_id.email)">
+                <div class="col-6" t-if="o.partner_id.phone or o.partner_id.mobile">
+                    Teléfono: <span t-out="o.partner_id.phone or o.partner_id.mobile"/>
+                </div>
+                <div class="col-6" t-if="o.partner_id.email">
+                    Email: <span t-field="o.partner_id.email"/>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+</odoo>

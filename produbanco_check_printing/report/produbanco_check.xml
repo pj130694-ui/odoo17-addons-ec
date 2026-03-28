@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- Report Wrapper -->
+  <template id="report_produbanco_check_document">
+    <!-- Force the Spanish (Ecuador) locale so numbers and dates use comma and dot correctly -->
+    <t t-call="web.html_container" t-lang="'es_EC'">
+      <t t-foreach="docs" t-as="o">
+        <t t-call="produbanco_check_printing.report_produbanco_check"/>
+      </t>
+    </t>
+  </template>
+
+  <!-- Real Check Layout -->
+  <template id="report_produbanco_check">
+
+    <div class="page" style="font-size:14px; margin-top:-5px;">
+
+      <!-- BENEFICIARIO + MONTO -->
+      <div class="row">
+        <!-- Reserve some space at the left (col‑2) for alignment -->
+        <div class="col-2"></div>
+
+        <!-- Beneficiary or partner name: uppercase and aligned at ~50px -->
+        <div class="col-6" style="margin-left:50px;">
+          <span t-esc="o.check_beneficiary_name_upper()"/>
+        </div>
+
+        <!-- Numeric amount: Produbanco uses a single '$' prefix and no asterisks -->
+        <div class="col-4" style="margin-left:5px; white-space:nowrap;">
+          <span>$ </span><span t-esc="o.check_amount_num_es()"/>
+        </div>
+      </div>
+
+      <!-- MONTO EN LETRAS -->
+      <div class="row">
+        <div class="col-2"></div>
+
+        <div class="col-6" style="margin-left:45px;">
+          <br/>
+          <!-- Print the amount in words with cents but without trailing asterisks -->
+          <span t-esc="o.check_pacifico_amount_words_line()"/>
+        </div>
+
+        <div class="col-4"></div>
+      </div>
+
+      <br/>
+
+      <!-- FECHA -->
+      <div class="row">
+        <div class="col-2"></div>
+
+        <div class="col-6" style="margin:15px 0 0 45px;">
+          <span t-esc="o.company_id.partner_id.city"/>
+          <span>, </span>
+          <span t-esc="o.check_payment_date_str()"/>
+        </div>
+
+        <div class="col-4"></div>
+      </div>
+
+    </div>
+
+  </template>
+
+</odoo>

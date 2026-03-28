@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ══════════════════════════════════════════════
+         Registrar CSS y JS del tema en el bundle
+         frontend usando ir.asset records
+    ═══════════════════════════════════════════════ -->
+    <record id="trionica_css" model="ir.asset">
+        <field name="name">Trionica Theme CSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">theme_trionica/static/src/css/theme.css</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="trionica_js" model="ir.asset">
+        <field name="name">Trionica Theme JS</field>
+        <field name="bundle">web.assets_frontend_lazy</field>
+        <field name="path">theme_trionica/static/src/js/theme.js</field>
+        <field name="active">True</field>
+    </record>
+
+</odoo>

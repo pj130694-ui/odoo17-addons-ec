@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Default API URL — only written on first install, not overwritten on upgrade -->
+        <record id="param_validate_ec_sri_api_url" model="ir.config_parameter">
+            <field name="key">validate_ec_sri.api_url</field>
+            <field name="value">https://cedula.trionica.ec</field>
+        </record>
+    </data>
+</odoo>

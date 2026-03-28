@@ -1,0 +1,126 @@
+<odoo>
+
+    <!-- ── Formulario de log ─────────────────────────────────────────────── -->
+    <record id="view_product_enrichment_log_form" model="ir.ui.view">
+        <field name="name">product.enrichment.log.form</field>
+        <field name="model">product.enrichment.log</field>
+        <field name="arch" type="xml">
+            <form string="Log de Enriquecimiento IA" create="false">
+                <header>
+                    <button name="action_retry" string="Reintentar" type="object"
+                            class="btn-primary"
+                            invisible="state not in ('error', 'pending')"
+                            confirm="¿Reintentar el enriquecimiento de este producto?"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="pending,processing,success,error"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="product_name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Resultado">
+                            <field name="product_id" readonly="1"/>
+                            <field name="enriched_date" readonly="1"/>
+                            <field name="images_downloaded" readonly="1"/>
+                            <field name="description_generated" readonly="1"/>
+                        </group>
+                        <group string="Estadísticas">
+                            <field name="attempt_count" readonly="1"/>
+                            <field name="duration_seconds" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Detalle del error" invisible="not error_message">
+                        <field name="error_message" readonly="1" nolabel="1"
+                               widget="text" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Lista de logs ────────────────────────────────────────────────── -->
+    <record id="view_product_enrichment_log_list" model="ir.ui.view">
+        <field name="name">product.enrichment.log.list</field>
+        <field name="model">product.enrichment.log</field>
+        <field name="arch" type="xml">
+            <tree string="Historial de Enriquecimiento IA"
+                  decoration-success="state == 'success'"
+                  decoration-danger="state == 'error'"
+                  decoration-muted="state == 'processing'"
+                  create="false">
+                <field name="product_id"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'success'"
+                       decoration-warning="state in ('pending', 'processing')"
+                       decoration-danger="state == 'error'"/>
+                <field name="enriched_date"/>
+                <field name="images_downloaded" optional="show"/>
+                <field name="description_generated" optional="show"/>
+                <field name="attempt_count" optional="show"/>
+                <field name="duration_seconds" optional="show" string="Duración (s)"/>
+                <button name="action_retry" string="Reintentar" type="object"
+                        icon="fa-refresh"
+                        invisible="state not in ('error', 'pending')"
+                        title="Reintentar enriquecimiento"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ── Vista de búsqueda ─────────────────────────────────────────────── -->
+    <record id="view_product_enrichment_log_search" model="ir.ui.view">
+        <field name="name">product.enrichment.log.search</field>
+        <field name="model">product.enrichment.log</field>
+        <field name="arch" type="xml">
+            <search string="Buscar logs">
+                <field name="product_id"/>
+                <field name="product_name"/>
+                <filter string="Exitosos" name="success" domain="[('state','=','success')]"/>
+                <filter string="Con error" name="error" domain="[('state','=','error')]"/>
+                <filter string="Pendientes" name="pending"
+                        domain="[('state','in',('pending','processing'))]"/>
+                <separator/>
+                <filter string="Hoy" name="today"
+                        domain="[('enriched_date','&gt;=',(context_today()).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter name="group_state" string="Estado"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_date" string="Fecha"
+                            context="{'group_by': 'enriched_date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ── Acción ────────────────────────────────────────────────────────── -->
+    <record id="action_product_enrichment_log" model="ir.actions.act_window">
+        <field name="name">Historial de Enriquecimiento IA</field>
+        <field name="res_model">product.enrichment.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_product_enrichment_log_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                El cron aún no ha procesado ningún producto.
+            </p>
+            <p>
+                El enriquecimiento automático se ejecuta cada 2 horas.
+                También puedes iniciar el proceso desde la ficha de cualquier producto.
+            </p>
+        </field>
+    </record>
+
+    <!-- ── Menú ──────────────────────────────────────────────────────────── -->
+    <menuitem
+        id="menu_product_ai_enrichment_root"
+        name="Enriquecimiento IA"
+        parent="stock.menu_stock_inventory_control"
+        sequence="99"/>
+
+    <menuitem
+        id="menu_product_enrichment_log"
+        name="Historial de Procesamiento"
+        parent="menu_product_ai_enrichment_root"
+        action="action_product_enrichment_log"
+        sequence="10"/>
+
+</odoo>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             LISTADO DE RETENCIONES RECIBIDAS (Retenciones de Clientes)
+             Vista de árbol y acción para consultar y exportar a Excel
+             las retenciones importadas del SRI, filtradas por diario
+             de tipo out_withhold (retenciones de ventas/clientes).
+             ══════════════════════════════════════════════════════════════ -->
+        <record id="view_out_withhold_tree" model="ir.ui.view">
+            <field name="name">ec.sri.out.withhold.tree</field>
+            <field name="model">account.move</field>
+            <field name="arch" type="xml">
+                <tree string="Retenciones Recibidas"
+                      default_order="l10n_ec_withhold_date desc"
+                      decoration-muted="state == 'draft'"
+                      decoration-danger="state == 'cancel'">
+                    <field name="ref" string="N° Retención SRI"/>
+                    <field name="l10n_ec_withhold_date" string="Fecha Retención"/>
+                    <field name="partner_id" string="Cliente / Emisor"/>
+                    <field name="l10n_ec_edi_related_invoice_id" string="Factura Sustento"/>
+                    <field name="l10n_ec_authorization_number" string="Clave de Acceso SRI" optional="show"/>
+                    <field name="l10n_ec_edi_withhold_fuente" string="Ret. Fuente" optional="show" sum="Total Fuente"/>
+                    <field name="l10n_ec_edi_withhold_iva" string="Ret. IVA" optional="show" sum="Total IVA"/>
+                    <field name="l10n_ec_withhold_total_amount" string="Total Retenido" sum="Total"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="state" string="Estado"
+                           decoration-success="state == 'posted'"
+                           decoration-warning="state == 'draft'"
+                           widget="badge"/>
+                    <field name="payment_state" string="Pago"
+                           optional="show"
+                           decoration-success="payment_state == 'paid'"
+                           decoration-warning="payment_state in ('partial','in_payment')"
+                           widget="badge"/>
+                    <field name="journal_id" string="Diario" optional="hide"/>
+                    <field name="name" string="Ref. Interna" optional="hide"/>
+                    <field name="l10n_latam_document_number" string="N° Doc. Latam" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_out_withhold_search" model="ir.ui.view">
+            <field name="name">ec.sri.out.withhold.search</field>
+            <field name="model">account.move</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Retenciones">
+                    <field name="ref" string="N° Retención SRI"/>
+                    <field name="partner_id" string="Cliente"/>
+                    <field name="l10n_ec_authorization_number" string="Clave de Acceso"/>
+                    <field name="l10n_ec_withhold_date" string="Fecha Retención"/>
+                    <filter string="Contabilizadas" name="posted"
+                            domain="[('state','=','posted')]"/>
+                    <filter string="Enero" name="enero"
+                            domain="[('l10n_ec_withhold_date','&gt;=','2026-01-01'),('l10n_ec_withhold_date','&lt;=','2026-01-31')]"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Cliente" name="by_partner"
+                                context="{'group_by': 'partner_id'}"/>
+                        <filter string="Mes" name="by_month"
+                                context="{'group_by': 'l10n_ec_withhold_date:month'}"/>
+                        <filter string="Diario" name="by_journal"
+                                context="{'group_by': 'journal_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_view_sri_out_withholds" model="ir.actions.act_window">
+            <field name="name">Retenciones Recibidas (Clientes)</field>
+            <field name="res_model">account.move</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('journal_id.l10n_ec_withhold_type', '=', 'out_withhold')]</field>
+            <field name="context">{'search_default_posted': 1, 'default_move_type': 'entry'}</field>
+            <field name="view_id" ref="view_out_withhold_tree"/>
+            <field name="search_view_id" ref="view_out_withhold_search"/>
+        </record>
+
+        <menuitem id="ec_sri_out_withholds_menu"
+            name="Retenciones Recibidas"
+            parent="l10n_ec.sri_menu"
+            action="action_view_sri_out_withholds"
+            sequence="4"/>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             LISTADO RETENCIONES BANCOS / TARJETAS
+             Retenciones importadas con diarios que NO son out_withhold
+             (ej: TARJETAS DE CREDITO CLIENTE), identificadas por tener
+             l10n_ec_withhold_date y l10n_ec_authorization_number.
+             ══════════════════════════════════════════════════════════════ -->
+        <record id="action_view_sri_bank_withholds" model="ir.actions.act_window">
+            <field name="name">Retenciones Bancos / Tarjetas</field>
+            <field name="res_model">account.move</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[
+                ('l10n_ec_withhold_date', '!=', False),
+                ('l10n_ec_authorization_number', '!=', False),
+                ('journal_id.l10n_ec_withhold_type', '=', False)
+            ]</field>
+            <field name="context">{'search_default_posted': 1, 'default_move_type': 'entry'}</field>
+            <field name="view_id" ref="view_out_withhold_tree"/>
+            <field name="search_view_id" ref="view_out_withhold_search"/>
+        </record>
+
+        <menuitem id="ec_sri_bank_withholds_menu"
+            name="Retenciones Bancos / Tarjetas"
+            parent="l10n_ec.sri_menu"
+            action="action_view_sri_bank_withholds"
+            sequence="5"/>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             TAB "Líneas de Retención" en formulario account.move
+             Visible cuando el move tiene l10n_ec_withhold_date (retención),
+             muestra solo las líneas de débito (impuestos retenidos).
+             ══════════════════════════════════════════════════════════════ -->
+        <record id="view_account_move_withhold_lines_inherit" model="ir.ui.view">
+            <field name="name">account.move.withhold.lines.ec.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Líneas de Retención"
+                          invisible="not l10n_ec_withhold_date and l10n_ec_withhold_type == False">
+                        <group>
+                            <field name="l10n_ec_edi_related_invoice_id"
+                                   string="Factura relacionada"
+                                   invisible="not l10n_ec_withhold_date"/>
+                        </group>
+                        <field name="line_ids" readonly="1">
+                            <tree>
+                                <field name="account_id" string="Cuenta"/>
+                                <field name="name" string="Descripción"/>
+                                <field name="debit" string="Débito"/>
+                                <field name="credit" string="Crédito"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             FIN LISTADO DE RETENCIONES
+             ══════════════════════════════════════════════════════════════ -->
+
+		<record id="ec_sri_load_edi_view_form" model="ir.ui.view">
+            <field name="name">ec.sri.load.edi.view.form</field>
+			<field name="model">ec.sri.load.edi</field>
+			<field name="arch" type="xml">
+			    <form string="Cargar Documentos Electrónicos">
+					<field name="type" widget="radio"/>
+                    <group invisible="type != 'txt'" col="1">
+						<h2>Seleccione el archivo txt para importar</h2>
+						<group>
+							<field name="data_file" filename="filename" nolabel="1" placeholder="Seleccione el archivo a importar..."/>
+							<field name="filename" invisible="1"/>
+						</group>
+					</group>
+                    <group invisible="type != 'xml'" col="1">
+						<h2>Seleccione los archivos xml para importar</h2>
+						<group>
+							<field name="xmls_ids" widget="many2many_binary" nolabel="1" />
+						</group>
+					</group>
+					<field name="process" invisible="1"/>
+                    <group col="1" invisible="not process">
+						<separator string="RESULTADOS"/>
+						<newline />
+						<separator/>
+						<button name="new_import" string="Nueva carga" type="object" class="btn-primary"/>
+					</group>
+                    <group col="1" invisible="not process">
+						<field name="results" nolabel="1" placeholder="Resultados..." readonly="1" widget="text"/>
+					</group>
+                    <group colspan="4" string="Archivo de Resultados:"
+                        invisible="not file_data">
+						<field name="file_name" invisible="1"/>
+						<h1><field name="file_data" filename="file_name" nolabel="1"/></h1>
+					</group>
+					<footer>
+                        <button name="import_file_txt" string="Importar Txt" type="object" class="btn-primary" invisible="process or type != 'txt'" />
+                        <button name="import_files" string="Importar Xml" type="object" class="btn-primary" invisible="process or type != 'xml'" />
+                        <button string="Cancel" class="btn-default" special="cancel" invisible="process"/>
+                        <button string="Cerrar" class="btn-default" special="cancel" invisible="not process"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="ec_action_sri_load_edi">
+			<field name="name">Carga de Documentos Electrónicos</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">ec.sri.load.edi</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="ec_sri_load_edi_view_form"/>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="ec_sri_load_edi_menu_root" name="Cargar Documentos Electrónicos"
+			parent="l10n_ec.sri_menu" action="ec_action_sri_load_edi" sequence="3"/>
+
+	</data> 
+</odoo>

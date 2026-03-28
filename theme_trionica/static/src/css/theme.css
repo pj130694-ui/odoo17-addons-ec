@@ -1,0 +1,821 @@
+/* ═══════════════════════════════════════════════════════════
+   THEME TRIONICA – Brand Colors v3
+   Amarillo #F5C518 · Negro #111111 · Sin azul
+═══════════════════════════════════════════════════════════ */
+
+:root {
+    /* Brand */
+    --tio-yellow:       #F5C518;
+    --tio-yellow-dark:  #D4A800;
+    --tio-yellow-glow:  rgba(245,197,24,.35);
+    --tio-black:        #111111;
+    /* Dark backgrounds */
+    --tio-dark:         #0F0F0F;
+    --tio-dark2:        #181818;
+    --tio-dark3:        #212121;
+    --tio-dark4:        #2A2A2A;
+    /* Text */
+    --tio-white:        #FFFFFF;
+    --tio-text:         #E8E8E8;
+    --tio-text-light:   #A0A0A0;
+    /* UI */
+    --tio-card-bg:      rgba(255,255,255,0.04);
+    --tio-border:       rgba(255,255,255,0.10);
+    --tio-border-y:     rgba(245,197,24,0.25);
+    --tio-radius:       14px;
+    --tio-radius-sm:    8px;
+    --tio-transition:   0.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   KILL WHITE — força fundo escuro em TUDO
+═══════════════════════════════════════════════════════════ */
+body:has(.tio-page) { background:#0F0F0F !important; color:var(--tio-text) !important; }
+body:has(.tio-page) #wrapwrap,
+body:has(.tio-page) #wrap { background:#0F0F0F !important; }
+.tio-page, .tio-page > * { background-color: transparent; }
+
+/* ═══════════════════════════════════════════════════════════
+   NAVBAR  — texto branco/amarelo, fundo preto
+   Bootstrap usa .navbar-light que força texto escuro.
+   Sobreescrevemos com máxima especificidade.
+═══════════════════════════════════════════════════════════ */
+body:has(.tio-page) #wrapwrap > header,
+body:has(.tio-page) header#top,
+body:has(.tio-page) .o_header_standard {
+    background: rgba(15,15,15,0.97) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(245,197,24,.2) !important;
+    box-shadow: none !important;
+}
+
+/* Force ALL nav-link text to white — override navbar-light */
+body:has(.tio-page) header nav a,
+body:has(.tio-page) header nav span,
+body:has(.tio-page) .o_header_standard nav a,
+body:has(.tio-page) .o_header_standard .navbar-nav .nav-link,
+body:has(.tio-page) .o_header_standard a.nav-link,
+body:has(.tio-page) nav.navbar.navbar-light .nav-link,
+body:has(.tio-page) nav.navbar .nav-link,
+body:has(.tio-page) .top_menu .nav-link,
+body:has(.tio-page) header .nav-link,
+body:has(.tio-page) header a.nav-link { color: rgba(255,255,255,0.88) !important; font-weight:500; }
+
+body:has(.tio-page) header .nav-link:hover,
+body:has(.tio-page) .o_header_standard .nav-link:hover,
+body:has(.tio-page) nav.navbar .nav-link:hover { color: var(--tio-yellow) !important; }
+
+body:has(.tio-page) .o_header_standard .nav-link.active,
+body:has(.tio-page) nav.navbar .nav-link.active { color: var(--tio-yellow) !important; }
+
+/* Navbar brand/logo — global so it applies on shop/blog too */
+.navbar-brand img,
+header .navbar-brand img {
+    opacity: 1 !important;
+    filter: brightness(1) !important;  /* use the processed white-text PNG */
+    max-height: 38px;
+    width: auto;
+}
+
+/* Cart / icons */
+body:has(.tio-page) header .o_wsale_cart_badge { background: var(--tio-yellow) !important; color: #111 !important; }
+body:has(.tio-page) header .fa,
+body:has(.tio-page) header .o_sign_in { color: rgba(255,255,255,0.88) !important; }
+
+/* Dropdown menus */
+body:has(.tio-page) .o_header_standard .dropdown-menu,
+body:has(.tio-page) header .dropdown-menu {
+    background: #181818 !important;
+    border: 1px solid rgba(245,197,24,.2) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,.6) !important;
+}
+body:has(.tio-page) header .dropdown-item {
+    color: rgba(255,255,255,0.82) !important;
+    font-size:.9rem;
+}
+body:has(.tio-page) header .dropdown-item:hover {
+    background: rgba(245,197,24,.1) !important;
+    color: var(--tio-yellow) !important;
+}
+
+/* Navbar toggler (mobile) */
+body:has(.tio-page) .navbar-toggler { border-color: rgba(255,255,255,.25) !important; }
+body:has(.tio-page) .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,.8)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* o_menu_loading: Odoo hides navbar with opacity:0 while fonts load.
+   Override unconditionally — the class is removed by Odoo JS once fonts are ready,
+   so forcing opacity:1 just prevents any flash of invisible navbar. */
+.top_menu.o_menu_loading,
+#top_menu.o_menu_loading {
+    opacity: 1 !important;
+    overflow: visible !important;
+}
+
+/* Bootstrap 5 CSS variable override — .navbar-light sets --bs-navbar-color
+   which overrides .nav-link color. Override on tio-page AND globally for all website pages. */
+body:has(.tio-page) nav.navbar,
+.o_header_standard nav.navbar,
+header#top nav.navbar {
+    --bs-navbar-color: rgba(255,255,255,0.88);
+    --bs-navbar-hover-color: #F5C518;
+    --bs-navbar-active-color: #F5C518;
+    --bs-navbar-disabled-color: rgba(255,255,255,0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER — dark
+═══════════════════════════════════════════════════════════ */
+body:has(.tio-page) footer,
+body:has(.tio-page) #footer,
+body:has(.tio-page) .o_footer {
+    background: var(--tio-dark2) !important;
+    color: var(--tio-text-light) !important;
+    border-top: 1px solid rgba(245,197,24,.15) !important;
+}
+body:has(.tio-page) footer *,
+body:has(.tio-page) #footer * {
+    color: var(--tio-text-light) !important;
+}
+body:has(.tio-page) footer a:hover,
+body:has(.tio-page) #footer a:hover { color: var(--tio-yellow) !important; }
+body:has(.tio-page) footer .h5,
+body:has(.tio-page) #footer .h5,
+body:has(.tio-page) footer h5 { color: var(--tio-white) !important; font-weight:600; }
+body:has(.tio-page) footer .copyright { color: rgba(255,255,255,.4) !important; font-size:.82rem; }
+
+/* ═══════════════════════════════════════════════════════════
+   COOKIE BANNER (if shown)
+═══════════════════════════════════════════════════════════ */
+body:has(.tio-page) .o_cookies_bar {
+    background: var(--tio-dark3) !important;
+    border-top: 1px solid var(--tio-border-y) !important;
+    color: var(--tio-text) !important;
+}
+body:has(.tio-page) .o_cookies_bar .btn-primary {
+    background: var(--tio-yellow) !important;
+    border-color: var(--tio-yellow) !important;
+    color: #111 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE BASE
+═══════════════════════════════════════════════════════════ */
+.tio-page { font-family:'Inter','Space Grotesk',sans-serif; background:var(--tio-dark); color:var(--tio-text); overflow-x:hidden; }
+.tio-page h1,.tio-page h2,.tio-page h3,.tio-page h4,.tio-page h5 { font-family:'Space Grotesk','Inter',sans-serif; color:var(--tio-white); }
+.tio-page a { text-decoration:none; }
+.tio-page p { color:var(--tio-text); }
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════════════════ */
+.tio-gradient-text {
+    background: linear-gradient(135deg, var(--tio-yellow), var(--tio-yellow-dark));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.tio-tag {
+    display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.1em;
+    text-transform:uppercase; padding:.3rem .85rem; border-radius:50px;
+    background:rgba(245,197,24,.12); color:var(--tio-yellow);
+    border:1px solid rgba(245,197,24,.3); margin-bottom:.75rem;
+}
+.tio-section-title { font-size:clamp(1.5rem,3.5vw,2.4rem); font-weight:700; line-height:1.2; color:var(--tio-white); margin-bottom:.75rem; }
+.tio-section-sub { font-size:1rem; color:var(--tio-text-light); max-width:580px; line-height:1.75; }
+
+/* ═══════════════════════════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════════════════════════ */
+.tio-section           { padding:5rem 0; }
+.tio-section--dark     { background:var(--tio-dark)  !important; }
+.tio-section--dark2    { background:var(--tio-dark2) !important; }
+.tio-section--dark3    { background:var(--tio-dark3) !important; }
+.tio-section--gradient {
+    background: linear-gradient(135deg, #1A1500 0%, #2A2000 40%, #1A1A1A 100%) !important;
+    border-top: 1px solid rgba(245,197,24,.15);
+    border-bottom: 1px solid rgba(245,197,24,.15);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════════════ */
+.tio-btn-primary {
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    background:linear-gradient(135deg, var(--tio-yellow), var(--tio-yellow-dark));
+    color:#111 !important; font-weight:700; font-size:.9rem; padding:.7rem 1.75rem;
+    border-radius:50px; border:none; cursor:pointer; transition:var(--tio-transition);
+    box-shadow:0 4px 20px var(--tio-yellow-glow); text-decoration:none !important; line-height:1.4;
+}
+.tio-btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(245,197,24,.5); color:#111 !important; }
+.tio-btn-outline {
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    background:transparent; color:var(--tio-white) !important; font-weight:600; font-size:.9rem;
+    padding:.7rem 1.75rem; border-radius:50px; border:1.5px solid rgba(255,255,255,.3);
+    cursor:pointer; transition:var(--tio-transition); text-decoration:none !important; line-height:1.4;
+}
+.tio-btn-outline:hover { background:rgba(245,197,24,.1); border-color:rgba(245,197,24,.5); color:var(--tio-yellow) !important; }
+.tio-btn-dark {
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    background:var(--tio-dark3); color:var(--tio-yellow) !important; font-weight:600; font-size:.9rem;
+    padding:.7rem 1.75rem; border-radius:50px; border:1px solid var(--tio-border-y);
+    cursor:pointer; transition:var(--tio-transition); text-decoration:none !important; line-height:1.4;
+}
+.tio-btn-dark:hover { background:rgba(245,197,24,.1); color:var(--tio-yellow) !important; }
+.tio-btn-whatsapp {
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:linear-gradient(135deg,#25D366,#128C7E); color:#fff !important;
+    font-weight:600; font-size:.9rem; padding:.7rem 1.75rem; border-radius:50px;
+    border:none; cursor:pointer; transition:var(--tio-transition);
+    box-shadow:0 4px 20px rgba(37,211,102,.3); text-decoration:none !important;
+}
+.tio-btn-whatsapp:hover { transform:translateY(-2px); color:#fff !important; opacity:.95; }
+
+/* ═══════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════ */
+.tio-hero {
+    min-height: 100vh;
+    display:flex; align-items:center; position:relative; overflow:hidden;
+    background:var(--tio-dark) !important;
+    /* paddingTop compensa navbar fixa (~72px) */
+    padding: 5rem 0 3rem;
+}
+.tio-hero-bg {
+    position:absolute; inset:0;
+    background:
+        radial-gradient(ellipse 70% 60% at 75% 50%, rgba(245,197,24,.08) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 15% 70%, rgba(245,197,24,.04) 0%, transparent 55%),
+        linear-gradient(180deg, var(--tio-dark) 0%, #141414 100%);
+}
+.tio-hero-grid {
+    position:absolute; inset:0;
+    background-image:
+        linear-gradient(rgba(245,197,24,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,197,24,.03) 1px, transparent 1px);
+    background-size:60px 60px; pointer-events:none;
+}
+.tio-hero-glow {
+    position:absolute; width:500px; height:500px; border-radius:50%;
+    background:radial-gradient(circle, rgba(245,197,24,.12) 0%, transparent 70%);
+    top:-80px; right:-80px; pointer-events:none;
+}
+.tio-eyebrow {
+    font-size:.75rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+    color:var(--tio-yellow); display:flex; align-items:center; gap:.55rem;
+}
+.tio-eyebrow::before { content:''; display:inline-block; width:28px; height:2px; background:var(--tio-yellow); }
+.tio-hero-title { font-size:clamp(2rem,5.5vw,3.8rem); font-weight:800; line-height:1.1; letter-spacing:-.02em; color:var(--tio-white); }
+.tio-hero-desc { font-size:1.05rem; color:var(--tio-text-light); max-width:520px; line-height:1.8; }
+.tio-hero-badges { display:flex; flex-wrap:wrap; gap:.55rem; }
+.tio-badge {
+    display:flex; align-items:center; gap:.4rem;
+    background:rgba(255,255,255,.04); border:1px solid var(--tio-border);
+    border-radius:50px; padding:.28rem .85rem .28rem .55rem;
+    font-size:.8rem; font-weight:500; color:rgba(255,255,255,.78);
+}
+.tio-badge .fa { color:var(--tio-yellow); font-size:.8rem; }
+
+/* Hero visual */
+.tio-hero-placeholder {
+    width:100%; aspect-ratio:4/3;
+    background:linear-gradient(135deg, #181818 0%, #212121 50%, #1A1500 100%);
+    border-radius:20px; display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; border:1px solid rgba(245,197,24,.15);
+}
+.tio-hero-placeholder::before {
+    content:''; position:absolute; width:300px; height:300px; border-radius:50%;
+    background:radial-gradient(circle, rgba(245,197,24,.15) 0%, transparent 70%);
+    top:50%; left:50%; transform:translate(-50%,-50%);
+}
+.tio-hero-icon { font-size:5rem !important; color:rgba(245,197,24,.3); position:relative; z-index:1; }
+
+/* Floating cards */
+.tio-float-card {
+    position:absolute; background:rgba(24,24,24,.92); backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px); border:1px solid rgba(245,197,24,.2);
+    border-radius:12px; padding:1rem 1.25rem; z-index:10;
+}
+.tio-float-card--1 { top:10%; right:-5px; animation:tio-float 4s ease-in-out infinite; }
+.tio-float-card--2 { bottom:12%; left:-15px; animation:tio-float 4s ease-in-out infinite; animation-delay:2s; }
+@keyframes tio-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.tio-float-icon { width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0; }
+.tio-float-icon--yellow { background:rgba(245,197,24,.2); color:var(--tio-yellow); }
+.tio-float-icon--teal   { background:rgba(0,201,167,.2);  color:#00C9A7; }
+.tio-float-label { font-size:.7rem; color:var(--tio-text-light); }
+.tio-float-value { font-size:.86rem; font-weight:600; color:var(--tio-white); }
+
+/* ═══════════════════════════════════════════════════════════
+   STATS
+═══════════════════════════════════════════════════════════ */
+.tio-stats {
+    padding:3rem 0; background:var(--tio-dark2) !important;
+    border-top:1px solid rgba(245,197,24,.15); border-bottom:1px solid rgba(245,197,24,.15);
+}
+.tio-stat { text-align:center; padding:1rem .5rem; }
+.tio-stat-number {
+    font-family:'Space Grotesk','Inter',sans-serif;
+    font-size:clamp(2rem,4vw,2.8rem); font-weight:800;
+    color:var(--tio-yellow); line-height:1;
+}
+.tio-stat-label { font-size:.82rem; color:var(--tio-text-light); margin-top:.35rem; font-weight:500; }
+
+/* ═══════════════════════════════════════════════════════════
+   ICON VARIANTS
+═══════════════════════════════════════════════════════════ */
+.tio-icon--yellow { background:rgba(245,197,24,.12); color:var(--tio-yellow); }
+.tio-icon--white  { background:rgba(255,255,255,.08); color:var(--tio-white); }
+.tio-icon--green  { background:rgba(0,201,167,.12);  color:#00C9A7; }
+.tio-icon--red    { background:rgba(244,63,94,.12);   color:#F43F5E; }
+.tio-icon--orange { background:rgba(251,146,60,.12);  color:#FB923C; }
+/* keep for backwards-compat: */
+.tio-icon--blue   { background:rgba(245,197,24,.12); color:var(--tio-yellow); }
+.tio-icon--teal   { background:rgba(0,201,167,.12);  color:#00C9A7; }
+.tio-icon--purple { background:rgba(245,197,24,.12); color:var(--tio-yellow); }
+.tio-icon--pink   { background:rgba(251,146,60,.12); color:#FB923C; }
+
+/* ═══════════════════════════════════════════════════════════
+   SERVICE CARDS
+═══════════════════════════════════════════════════════════ */
+.tio-service-card {
+    background:var(--tio-dark3); border:1px solid var(--tio-border);
+    border-radius:var(--tio-radius); padding:2rem; transition:var(--tio-transition);
+    height:100%; position:relative; overflow:hidden;
+}
+.tio-service-card:hover { border-color:rgba(245,197,24,.4); transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,.4); }
+.tio-service-card:hover::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at top left, rgba(245,197,24,.04), transparent 60%); pointer-events:none; }
+.tio-service-icon { width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem; }
+.tio-service-title { font-size:.98rem;font-weight:600;color:var(--tio-white);margin-bottom:.6rem; }
+.tio-service-desc { font-size:.86rem;color:var(--tio-text-light);line-height:1.65; }
+.tio-service-link { display:inline-flex;align-items:center;gap:.35rem;font-size:.83rem;font-weight:600;color:var(--tio-yellow)!important;margin-top:1rem;transition:var(--tio-transition);text-decoration:none!important; }
+.tio-service-link:hover { gap:.6rem; }
+
+/* ═══════════════════════════════════════════════════════════
+   WHY US
+═══════════════════════════════════════════════════════════ */
+.tio-why-card { display:flex;gap:.9rem;padding:1.2rem;background:var(--tio-dark3);border:1px solid var(--tio-border);border-radius:var(--tio-radius-sm);transition:var(--tio-transition);height:100%; }
+.tio-why-card:hover { border-color:rgba(245,197,24,.3); background:rgba(245,197,24,.03); }
+.tio-why-icon { width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0; }
+.tio-why-title { font-size:.9rem;font-weight:600;color:var(--tio-white);margin-bottom:.25rem; }
+.tio-why-desc  { font-size:.8rem;color:var(--tio-text-light);line-height:1.6;margin:0; }
+
+/* ═══════════════════════════════════════════════════════════
+   CATEGORY PILLS
+═══════════════════════════════════════════════════════════ */
+.tio-cat-pills { display:flex;flex-wrap:wrap;gap:.6rem; }
+.tio-cat-pill { display:flex;flex-direction:column;align-items:center;gap:.45rem;padding:.85rem .8rem;background:var(--tio-dark3);border:1px solid var(--tio-border);border-radius:var(--tio-radius-sm);cursor:pointer;transition:var(--tio-transition);font-size:.75rem;font-weight:500;color:var(--tio-text-light);min-width:76px;text-align:center; }
+.tio-cat-pill .fa { font-size:1.3rem; }
+.tio-cat-pill:hover,.tio-cat-pill--active { background:rgba(245,197,24,.08);border-color:rgba(245,197,24,.4);color:var(--tio-white); }
+.tio-cat-pill:hover .fa,.tio-cat-pill--active .fa { color:var(--tio-yellow); }
+
+/* ═══════════════════════════════════════════════════════════
+   PRODUCT CARDS
+═══════════════════════════════════════════════════════════ */
+.tio-product-card { background:var(--tio-dark3);border:1px solid var(--tio-border);border-radius:var(--tio-radius);overflow:hidden;transition:var(--tio-transition);height:100%; }
+.tio-product-card:hover { border-color:rgba(245,197,24,.4);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.5); }
+.tio-product-img { width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--tio-dark4),#1A1500);display:flex;align-items:center;justify-content:center;color:rgba(245,197,24,.25);position:relative; }
+.tio-product-badge { position:absolute;top:.7rem;left:.7rem;font-size:.66rem;font-weight:700;padding:.18rem .5rem;border-radius:50px;background:var(--tio-yellow);color:#111; }
+.tio-product-body { padding:1rem 1.1rem; }
+.tio-product-brand { font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--tio-yellow); }
+.tio-product-name { font-size:.9rem;font-weight:600;color:var(--tio-white);margin:.25rem 0 .35rem;line-height:1.3; }
+.tio-product-price { font-family:'Space Grotesk','Inter',sans-serif;font-size:1.1rem;font-weight:700;color:var(--tio-yellow); }
+.tio-product-btn { display:flex;align-items:center;justify-content:center;gap:.4rem;background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.22);color:var(--tio-yellow)!important;font-size:.8rem;font-weight:600;padding:.45rem;border-radius:7px;margin-top:.65rem;transition:var(--tio-transition);text-decoration:none!important; }
+.tio-product-btn:hover { background:var(--tio-yellow);border-color:var(--tio-yellow);color:#111!important; }
+
+/* Real Odoo shop product cards — override white bg */
+body:has(.tio-page) .oe_website_sale .o_wsale_product_grid_wrapper,
+body:has(.tio-page) .oe_website_sale .o_product_image,
+body:has(.tio-page) .o_wsale_product_grid_wrapper { background:var(--tio-dark3)!important; color:var(--tio-text)!important; }
+body:has(.tio-page) .o_wsale_product_grid_wrapper .card { background:var(--tio-dark3)!important; border:1px solid var(--tio-border)!important; color:var(--tio-text)!important; }
+body:has(.tio-page) .o_wsale_product_grid_wrapper .card:hover { border-color:rgba(245,197,24,.4)!important; transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.5)!important; }
+body:has(.tio-page) .o_wsale_product_grid_wrapper .card-title,
+body:has(.tio-page) .o_wsale_product_grid_wrapper h5,
+body:has(.tio-page) .o_wsale_product_grid_wrapper h6 { color:var(--tio-white)!important; }
+body:has(.tio-page) .o_wsale_product_grid_wrapper .monetary_field,
+body:has(.tio-page) .oe_currency_value { color:var(--tio-yellow)!important; font-weight:700; }
+body:has(.tio-page) #products_grid,
+body:has(.tio-page) .oe_website_sale { background:transparent!important; }
+body:has(.tio-page) .o_shop_category_header { background:var(--tio-dark2)!important; color:var(--tio-white)!important; }
+
+/* Shop sidebar */
+body:has(.tio-page) .o_wsale_products_main,
+body:has(.tio-page) .o_wsale_products_main .o_aside_left,
+body:has(.tio-page) #left_column { background:transparent!important; }
+body:has(.tio-page) #left_column .list-group-item { background:var(--tio-dark3)!important; color:var(--tio-text)!important; border-color:var(--tio-border)!important; }
+body:has(.tio-page) #left_column .list-group-item:hover,
+body:has(.tio-page) #left_column .list-group-item.active { background:rgba(245,197,24,.08)!important; color:var(--tio-yellow)!important; }
+body:has(.tio-page) #left_column h6 { color:var(--tio-yellow)!important; }
+
+/* Shop filters / buttons */
+body:has(.tio-page) .btn-primary { background:var(--tio-yellow)!important; border-color:var(--tio-yellow)!important; color:#111!important; }
+body:has(.tio-page) .btn-secondary { background:var(--tio-dark3)!important; border-color:var(--tio-border)!important; color:var(--tio-text)!important; }
+body:has(.tio-page) .btn-outline-primary { border-color:var(--tio-yellow)!important; color:var(--tio-yellow)!important; }
+body:has(.tio-page) .btn-outline-primary:hover { background:var(--tio-yellow)!important; color:#111!important; }
+
+/* Product detail page */
+body:has(.tio-page) .o_wsale_product_information { background:transparent!important; }
+body:has(.tio-page) .o_wsale_product_information h1,
+body:has(.tio-page) .product_price { color:var(--tio-white)!important; }
+body:has(.tio-page) .product_price .oe_currency_value { color:var(--tio-yellow)!important; font-size:1.6rem!important; }
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT / MVV CARDS
+═══════════════════════════════════════════════════════════ */
+.tio-mvv-card { background:var(--tio-dark3);border:1px solid var(--tio-border);border-radius:var(--tio-radius);padding:2rem;height:100%;transition:var(--tio-transition); }
+.tio-mvv-card:hover { border-color:rgba(245,197,24,.3);transform:translateY(-3px); }
+.tio-mvv-icon { width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.2rem; }
+.tio-mvv-title { font-size:1.15rem;font-weight:700;color:var(--tio-white);margin-bottom:.75rem; }
+.tio-mvv-text { font-size:.87rem;color:var(--tio-text-light);line-height:1.75;margin:0; }
+.tio-history-card { background:var(--tio-dark3);border:1px solid var(--tio-border);border-radius:var(--tio-radius);padding:2rem;position:relative; }
+.tio-history-card::before { content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--tio-yellow),var(--tio-yellow-dark));border-radius:4px 0 0 4px; }
+.tio-about-placeholder { width:100%;aspect-ratio:1;background:linear-gradient(135deg,var(--tio-dark3),#1A1500);border-radius:20px;display:flex;align-items:center;justify-content:center;color:rgba(245,197,24,.25);position:relative;border:1px solid rgba(245,197,24,.15); }
+.tio-about-badge { position:absolute;bottom:1.5rem;right:1.5rem;background:var(--tio-yellow);color:#111;font-weight:700;font-size:.82rem;padding:.5rem 1rem;border-radius:50px;box-shadow:0 4px 16px rgba(245,197,24,.4); }
+.tio-about-list { list-style:none;padding:0; }
+.tio-about-list li { display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--tio-text);margin-bottom:.5rem; }
+.tio-about-list li .fa { color:var(--tio-yellow);flex-shrink:0; }
+
+/* ═══════════════════════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════════════════════ */
+.tio-testi-card { background:var(--tio-dark3);border:1px solid var(--tio-border);border-radius:var(--tio-radius);padding:1.75rem;height:100%;transition:var(--tio-transition); }
+.tio-testi-card:hover { border-color:rgba(245,197,24,.25);transform:translateY(-3px); }
+.tio-testi-stars { color:var(--tio-yellow);font-size:1rem;margin-bottom:.75rem;letter-spacing:.1em; }
+.tio-testi-text { font-size:.87rem;color:var(--tio-text-light);line-height:1.7;font-style:italic;margin-bottom:1.25rem; }
+.tio-avatar { width:40px;height:40px;border-radius:50%;background:var(--tio-yellow);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;color:#111;flex-shrink:0; }
+.tio-testi-name { font-size:.88rem;font-weight:600;color:var(--tio-white); }
+.tio-testi-role { font-size:.75rem;color:var(--tio-text-light); }
+
+/* ═══════════════════════════════════════════════════════════
+   CTA BANNER
+═══════════════════════════════════════════════════════════ */
+.tio-cta-banner {
+    background:linear-gradient(135deg, #1A1500 0%, #2C2200 60%, #1A1A1A 100%) !important;
+    padding:4.5rem 0; position:relative; overflow:hidden;
+    border-top:1px solid rgba(245,197,24,.2); border-bottom:1px solid rgba(245,197,24,.2);
+}
+.tio-cta-banner::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 60% 80% at 70% 50%, rgba(245,197,24,.08) 0%, transparent 60%);
+    pointer-events:none;
+}
+.tio-cta-banner > .container { position:relative;z-index:1; }
+
+/* ═══════════════════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════════════════ */
+.tio-contact-info-item { display:flex;align-items:flex-start;gap:1rem;padding:1rem;background:var(--tio-dark3);border:1px solid var(--tio-border);border-radius:var(--tio-radius-sm);margin-bottom:.75rem;transition:var(--tio-transition); }
+.tio-contact-info-item:hover { border-color:rgba(245,197,24,.3); }
+.tio-contact-icon { width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0; }
+.tio-contact-label { font-size:.7rem;color:var(--tio-text-light);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem; }
+.tio-contact-value { font-size:.87rem;font-weight:500;color:var(--tio-white); }
+.tio-contact-card { background:var(--tio-dark3);border:1px solid var(--tio-border);border-radius:var(--tio-radius); }
+.tio-social-row { display:flex;gap:.55rem; }
+.tio-social-btn { width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:var(--tio-dark3);border:1px solid var(--tio-border);color:var(--tio-text-light)!important;transition:var(--tio-transition);text-decoration:none!important; }
+.tio-social-btn:hover { background:rgba(245,197,24,.1);border-color:rgba(245,197,24,.4);color:var(--tio-yellow)!important; }
+
+/* Forms dark */
+.tio-page input.form-control,
+.tio-page textarea.form-control,
+.tio-page select.form-control,
+.tio-page select.form-select { background:rgba(255,255,255,.05)!important;border:1px solid var(--tio-border)!important;border-radius:var(--tio-radius-sm)!important;color:var(--tio-white)!important; }
+.tio-page input.form-control:focus,.tio-page textarea.form-control:focus { border-color:rgba(245,197,24,.5)!important;box-shadow:0 0 0 3px rgba(245,197,24,.1)!important;background:rgba(255,255,255,.07)!important; }
+.tio-page label { color:var(--tio-text-light)!important;font-size:.85rem!important;font-weight:500!important; }
+
+/* Blog cards dark */
+body:has(.tio-page) .o_blog_post_teaser,
+body:has(.tio-page) .o_blog_cover_image + .container,
+body:has(.tio-page) .blog_post_published { background:transparent!important; }
+body:has(.tio-page) .o_blog_page,
+body:has(.tio-page) .o_blog_page .o_blog_list { background:transparent!important; }
+body:has(.tio-page) .o_blog_post_teaser .card { background:var(--tio-dark3)!important;border:1px solid var(--tio-border)!important;color:var(--tio-text)!important; }
+body:has(.tio-page) .o_blog_post_teaser .card:hover { border-color:rgba(245,197,24,.3)!important; }
+body:has(.tio-page) .o_blog_post_teaser .card-title a { color:var(--tio-white)!important; }
+body:has(.tio-page) .o_blog_post_teaser .card-text { color:var(--tio-text-light)!important; }
+body:has(.tio-page) .o_blog_post_teaser .text-muted { color:var(--tio-text-light)!important; }
+body:has(.tio-page) .o_blog_cover_image { border-bottom:1px solid var(--tio-border)!important; }
+body:has(.tio-page) .o_blog_cover_container h1,
+body:has(.tio-page) .o_blog_cover_container h2 { color:var(--tio-white)!important; }
+
+/* ═══════════════════════════════════════════════════════════
+   PAGE HERO (interior pages)
+═══════════════════════════════════════════════════════════ */
+.tio-page-hero { padding:7rem 0 3.5rem;background:var(--tio-dark2)!important;position:relative;overflow:hidden;border-bottom:1px solid rgba(245,197,24,.15); }
+.tio-page-hero::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%, rgba(245,197,24,.07) 0%, transparent 65%);pointer-events:none; }
+.tio-page-hero > .container { position:relative;z-index:1; }
+.tio-page-hero-title { font-size:clamp(1.8rem,5vw,3rem);font-weight:800;color:var(--tio-white);line-height:1.15; }
+.tio-page-hero-sub { font-size:1.05rem;color:var(--tio-text-light);max-width:600px;line-height:1.8; }
+.tio-breadcrumb { display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--tio-text-light);margin-bottom:1.5rem; }
+.tio-breadcrumb a { color:var(--tio-text-light)!important;text-decoration:none!important; }
+.tio-breadcrumb a:hover { color:var(--tio-yellow)!important; }
+.tio-breadcrumb .sep { color:var(--tio-border); }
+.tio-breadcrumb .active { color:var(--tio-yellow); }
+
+/* ═══════════════════════════════════════════════════════════
+   WHATSAPP FAB
+═══════════════════════════════════════════════════════════ */
+.tio-whatsapp-fab { position:fixed;bottom:1.5rem;right:1.5rem;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff!important;box-shadow:0 4px 20px rgba(37,211,102,.45);z-index:9999;transition:var(--tio-transition);text-decoration:none!important; }
+.tio-whatsapp-fab:hover { transform:scale(1.12);box-shadow:0 8px 32px rgba(37,211,102,.55);color:#fff!important; }
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════════════════ */
+.tio-fade-up { opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease; }
+.tio-fade-up.tio-visible { opacity:1;transform:translateY(0); }
+
+/* CSS fallback: if JS doesn't add tio-visible (e.g. JS blocked or slow),
+   animate the elements visible after a short delay so content is never stuck invisible */
+@keyframes tio-fadein { to { opacity:1; transform:translateY(0); } }
+body:has(.tio-page) .tio-fade-up:not(.tio-visible) {
+    animation: tio-fadein 0.7s ease 0.5s forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+@media(max-width:991px) { .tio-hero{padding-top:4.5rem} .tio-page-hero{padding:5.5rem 0 3rem} }
+@media(max-width:767px) { .tio-section{padding:3rem 0} .tio-float-card{display:none} .tio-hero-title{font-size:2rem} .tio-page-hero-title{font-size:1.8rem} }
+
+/* ═══════════════════════════════════════════════════════════
+   GLOBAL SITE DARK — applies to shop, blog, and all pages
+   even without .tio-page wrapper
+═══════════════════════════════════════════════════════════ */
+/* Prevent horizontal scroll on mobile (common overflow issue) */
+html, body { overflow-x: hidden !important; max-width: 100vw; }
+
+#wrapwrap { background:#0F0F0F !important; overflow-x: hidden; }
+#wrap { background:#0F0F0F !important; }
+body { background:#0F0F0F !important; }
+
+/* Global dark header for ALL pages — override Odoo's o_cc1/.navbar-light white bg */
+#wrapwrap > header,
+header#top,
+.o_header_standard {
+    background: rgba(15,15,15,0.97) !important;
+    border-bottom: 1px solid rgba(245,197,24,.2) !important;
+    box-shadow: none !important;
+}
+/* The nav element inside the header also gets white bg from Odoo's .navbar-light rule — clear it */
+header#top .navbar,
+.o_header_standard .navbar,
+header#top nav.navbar,
+nav.navbar.navbar-light {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* Global nav-link white text — override Bootstrap .navbar-light dark text */
+header nav a.nav-link,
+.o_header_standard a.nav-link,
+nav.navbar a.nav-link,
+nav.navbar.navbar-light .nav-link,
+nav.navbar .navbar-nav .nav-link { color: rgba(255,255,255,0.88) !important; }
+header nav a.nav-link:hover,
+nav.navbar a.nav-link:hover,
+nav.navbar .navbar-nav .nav-link:hover { color: #F5C518 !important; }
+/* Active/current page link */
+nav.navbar .navbar-nav .nav-link.active,
+nav.navbar .nav-item.active > .nav-link { color: #F5C518 !important; }
+/* Navbar toggler (hamburger) — white icon */
+nav.navbar .navbar-toggler { border-color: rgba(255,255,255,.3) !important; }
+nav.navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,.8)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+/* Dropdown menus dark */
+nav.navbar .dropdown-menu {
+    background: #181818 !important;
+    border: 1px solid rgba(245,197,24,.2) !important;
+}
+nav.navbar .dropdown-item {
+    color: rgba(255,255,255,0.82) !important;
+}
+nav.navbar .dropdown-item:hover {
+    background: rgba(245,197,24,.1) !important;
+    color: #F5C518 !important;
+}
+
+/* Fix navbar overflow causing horizontal scroll */
+.o_main_nav,
+nav.navbar .container,
+nav.navbar .container-fluid { flex-wrap: nowrap !important; }
+@media(max-width:991px) {
+    nav.navbar .navbar-nav { overflow-x: auto; max-width: 100%; }
+}
+
+/* Global dark body text */
+body, #wrap p, #wrap h1, #wrap h2, #wrap h3, #wrap h4, #wrap h5, #wrap h6 {
+    color: #E8E8E8;
+}
+
+/* Shop / ecommerce dark */
+.oe_website_sale,
+.o_wsale_product_grid_wrapper,
+#products_grid { background: transparent !important; }
+.o_wsale_product_grid_wrapper .card {
+    background: #212121 !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
+    color: #E8E8E8 !important;
+}
+.o_wsale_product_grid_wrapper .card:hover {
+    border-color: rgba(245,197,24,.4) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.5) !important;
+}
+.o_wsale_product_grid_wrapper .card-title,
+.o_wsale_product_grid_wrapper h5,
+.o_wsale_product_grid_wrapper h6 { color: #fff !important; }
+.oe_currency_value,
+.monetary_field { color: #F5C518 !important; font-weight: 700; }
+.o_shop_category_header { background: #181818 !important; color: #fff !important; }
+
+/* Blog dark */
+.o_blog_page,
+.o_blog_list { background: transparent !important; }
+.o_blog_post_teaser .card { background: #212121 !important; border: 1px solid rgba(255,255,255,.1) !important; }
+.o_blog_post_teaser .card-title a,
+.o_blog_cover_container h1,
+.o_blog_cover_container h2 { color: #fff !important; }
+.o_blog_post_teaser .card-text,
+.o_blog_post_teaser .text-muted { color: #A0A0A0 !important; }
+
+/* Footer global dark */
+footer,
+#footer,
+.o_footer {
+    background: #181818 !important;
+    color: #A0A0A0 !important;
+    border-top: 1px solid rgba(245,197,24,.15) !important;
+}
+footer *,
+#footer * { color: #A0A0A0 !important; }
+footer a:hover,
+#footer a:hover { color: #F5C518 !important; }
+footer h5,
+#footer h5 { color: #fff !important; font-weight: 600; }
+/* Footer logo — ensure full brightness on dark background */
+#footer img[src*="logo"], footer img[src*="logo"] {
+    filter: brightness(1) !important;
+    max-height: 44px;
+    width: auto;
+}
+
+/* ── Category pills — homepage + shop ───────────────────────────────────── */
+.tio-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: .35rem .9rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.06);
+    color: rgba(255,255,255,.75) !important;
+    font-size: .8rem;
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: all .2s;
+    white-space: nowrap;
+}
+.tio-pill:hover,
+.tio-pill.active {
+    border-color: rgba(245,197,24,.6);
+    background: rgba(245,197,24,.12);
+    color: #F5C518 !important;
+}
+
+/* ── Homepage product card ──────────────────────────────────────────────── */
+.tio-product-card {
+    background: #1E1E1E;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all .25s;
+}
+.tio-product-card:hover {
+    border-color: rgba(245,197,24,.35);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0,0,0,.5);
+}
+
+/* Shop sidebar categories dark */
+.o_wsale_categories_list,
+.o_wsale_sidebar { background: transparent !important; }
+.o_wsale_categories_list a,
+.o_wsale_categories_list li a { color: rgba(255,255,255,.75) !important; }
+.o_wsale_categories_list a:hover,
+.o_wsale_categories_list li.active > a { color: #F5C518 !important; }
+/* Shop search bar dark */
+.o_wsale_search_wrapper input,
+.oe_website_sale .input-group input {
+    background: #1E1E1E !important;
+    border-color: rgba(255,255,255,.15) !important;
+    color: #E8E8E8 !important;
+}
+/* Shop product price */
+.oe_website_sale .oe_currency_value,
+.oe_website_sale .product_price { color: #F5C518 !important; font-weight: 700; }
+/* Shop "Add to cart" button */
+.oe_website_sale .btn-primary,
+.oe_website_sale a.btn.btn-primary {
+    background: linear-gradient(135deg,#F5C518,#D4A800) !important;
+    border-color: transparent !important;
+    color: #111 !important;
+    font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SHOP LEFT SIDEBAR — custom icon category list
+═══════════════════════════════════════════════════════════ */
+.tio-shop-cat-sidebar {
+    background: #181818;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    padding: 1.25rem 1rem;
+    margin-bottom: 1.5rem;
+}
+.tio-shop-cat-title {
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #A0A0A0;
+    margin-bottom: 1rem;
+    padding-bottom: .6rem;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.tio-cat-list {
+    margin: 0;
+    padding: 0;
+}
+.tio-cat-item {
+    margin-bottom: .15rem;
+}
+.tio-cat-link {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .5rem .65rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .18s;
+    text-decoration: none !important;
+    color: rgba(255,255,255,.7) !important;
+    font-size: .84rem;
+}
+.tio-cat-link:hover,
+.tio-cat-link.active {
+    background: rgba(245,197,24,.1);
+    color: #F5C518 !important;
+}
+.tio-cat-link.active {
+    border-left: 2px solid #F5C518;
+    padding-left: calc(.65rem - 2px);
+}
+.tio-cat-icon {
+    width: 26px;
+    text-align: center;
+    color: #A0A0A0;
+    font-size: .82rem;
+    flex-shrink: 0;
+    transition: color .18s;
+}
+.tio-cat-link:hover .tio-cat-icon,
+.tio-cat-link.active .tio-cat-icon { color: #F5C518; }
+.tio-cat-name { flex: 1; }
+.tio-cat-count {
+    font-size: .7rem;
+    color: #666;
+    background: rgba(255,255,255,.06);
+    border-radius: 50px;
+    padding: .1rem .4rem;
+    min-width: 22px;
+    text-align: center;
+    line-height: 1.5;
+}
+.tio-cat-link:hover .tio-cat-count,
+.tio-cat-link.active .tio-cat-count {
+    background: rgba(245,197,24,.15);
+    color: #F5C518;
+}
+/* Subcategory indent */
+.tio-cat-sublist {
+    padding-left: 1.2rem;
+    margin: .15rem 0 .3rem;
+}
+.tio-cat-sublink {
+    display: flex;
+    align-items: center;
+    padding: .3rem .5rem;
+    border-radius: 6px;
+    font-size: .8rem;
+    color: rgba(255,255,255,.55) !important;
+    text-decoration: none !important;
+    transition: all .15s;
+    cursor: pointer;
+}
+.tio-cat-sublink:hover,
+.tio-cat-sublink.active {
+    color: #F5C518 !important;
+    background: rgba(245,197,24,.07);
+}
+/* Make category links actually navigate */
+[data-link-href] { cursor: pointer; }
+
+/* ── Sidebar click handler (handled via inline JS or odoo's native a tag) ── */

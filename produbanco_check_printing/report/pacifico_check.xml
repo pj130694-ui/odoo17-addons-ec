@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- Wrapper for Pacífico cheque report -->
+  <template id="report_pacifico_check_document">
+    <t t-call="web.html_container" t-lang="'es_EC'">
+      <t t-foreach="docs" t-as="o">
+        <t t-call="produbanco_check_printing.report_pacifico_check"/>
+      </t>
+    </t>
+  </template>
+
+  <!-- Pacífico cheque layout -->
+  <template id="report_pacifico_check">
+
+    <div class="page" style="font-size:14px; margin-top:-5px;">
+
+      <!-- Beneficiary (or partner) and numeric amount -->
+      <div class="row" style="margin-top:15px;">
+        <div class="col-8" style="margin-left:170px; white-space:nowrap;">
+          <span t-esc="o.check_beneficiary_name_upper()"/>
+        </div>
+        <div class="col-4" style="margin-left:550px; white-space:nowrap;">
+          <span>**$ </span><span t-esc="o.check_amount_num_es()"/>
+        </div>
+      </div>
+
+      <!-- Amount in words (without asterisks) -->
+      <div class="row">
+        <div class="col-12" style="margin-left:165px; margin-top:18px; white-space:nowrap;">
+          <span t-esc="o.check_pacifico_amount_words_line()"/>
+        </div>
+      </div>
+
+      <!-- Date line -->
+      <div class="row">
+        <div class="col-12" style="margin-left:165px; margin-top:28px; white-space:nowrap;">
+          <span t-esc="o.company_id.partner_id.city"/>
+          <span>, </span>
+          <span t-esc="o.check_payment_date_str()"/>
+        </div>
+      </div>
+
+    </div>
+
+  </template>
+
+</odoo>

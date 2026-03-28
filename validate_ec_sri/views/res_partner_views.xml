@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Inherit partner form — add button + SRI tab
+         Inherits l10n_latam_base form so the VAT / identification fields
+         are already present when our changes run.
+    ════════════════════════════════════════════════════════════════════ -->
+    <record id="view_partner_sri_form_inh" model="ir.ui.view">
+        <field name="name">res.partner.form.validate_ec_sri</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="l10n_latam_base.view_partner_latam_form"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+
+            <!-- Insert "Consultar SRI/RC" button after the vat field -->
+            <xpath expr="//field[@name='vat']" position="after">
+                <button
+                    name="action_fetch_sri_data"
+                    string="Consultar SRI / RC"
+                    type="object"
+                    class="btn-secondary"
+                    icon="fa-search"
+                    invisible="not vat"
+                    title="Autocompleta datos del contacto consultando el SRI o Registro Civil"
+                />
+                <button
+                    name="action_open_name_search_wizard"
+                    string="Buscar por Nombre"
+                    type="object"
+                    class="btn-secondary"
+                    icon="fa-user-circle"
+                    title="Busca en el Registro Civil por nombre y autocompleta los datos"
+                    invisible="company_type == 'company'"
+                />
+                <field
+                    name="sri_verified"
+                    widget="boolean_toggle"
+                    readonly="1"
+                    invisible="not sri_verified"
+                    nolabel="1"
+                />
+                <field
+                    name="sri_last_check"
+                    readonly="1"
+                    invisible="not sri_last_check"
+                    nolabel="1"
+                    class="text-muted small"
+                />
+                <field name="type_ref" invisible="1"/>
+            </xpath>
+
+            <!-- Add "Datos SRI" notebook page -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Datos SRI" name="page_sri_data"
+                      invisible="not sri_verified and not sri_nombre_comercial and not sri_estado">
+                    <group string="Información Tributaria">
+                        <group>
+                            <field name="sri_nombre_comercial"/>
+                            <field name="sri_estado"/>
+                            <field name="sri_tipo"/>
+                            <field name="sri_regimen"/>
+                            <field name="sri_actividad"/>
+                        </group>
+                        <group>
+                            <field name="sri_obligado_contabilidad"/>
+                            <field name="sri_agente_retencion"/>
+                            <field name="sri_contribuyente_especial"/>
+                            <field name="sri_last_check"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Search view: add sri_nombre_comercial and vat search -->
+    <record id="view_partner_sri_search_inh" model="ir.ui.view">
+        <field name="name">res.partner.search.validate_ec_sri</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="sri_nombre_comercial"
+                       filter_domain="[('sri_nombre_comercial', 'ilike', self)]"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

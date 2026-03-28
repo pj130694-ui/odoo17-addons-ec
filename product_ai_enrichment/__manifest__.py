@@ -1,0 +1,23 @@
+{
+    'name': 'Enriquecimiento de Productos con IA',
+    'version': '17.0.1.0.0',
+    'category': 'Inventory/Products',
+    'summary': 'Enriquece automáticamente tus productos con imágenes profesionales y descripciones generadas por IA (GPT-4o + Google Images)',
+    'author': 'PJFlow.io',
+    'website': 'https://pjflow.io',
+    'license': 'LGPL-3',
+    'depends': ['product', 'base_setup'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/cron_data.xml',
+        'views/product_enrichment_views.xml',
+        'views/product_template_views.xml',
+        'views/res_config_settings_views.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+    'external_dependencies': {
+        'python': ['openai', 'requests'],
+    },
+}
