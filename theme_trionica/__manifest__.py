@@ -14,7 +14,7 @@
         'views/homepage.xml',
         'data/cron.xml',
     ],
-    'images': ['static/description/preview.png'],
+    'images': ['static/description/images/cover.png'],
     'installable': True,
     'auto_install': False,
     'application': False,
