@@ -12,7 +12,7 @@
         'views/assets.xml',
         'views/layout.xml',
     ],
-    'images': ['static/description/images/cover.png'],
+    'images': ['static/description/images/website_screenshot.png', 'static/description/images/cover.png'],
     'installable': True,
     'application': False,
     'price': 59.99,
