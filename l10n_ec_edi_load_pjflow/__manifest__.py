@@ -9,7 +9,7 @@
 ##############################################################################
 
 {
-    'name': 'Ecuador EDI Loader - PJFlow',
+    'name': 'Importar Facturas y Retenciones SRI Ecuador',
     # Upgrade the module to target Odoo 17.  The major version (17) reflects
     # the Odoo release and the minor/patch numbers can be incremented for
     # subsequent functional or bug‑fix releases.

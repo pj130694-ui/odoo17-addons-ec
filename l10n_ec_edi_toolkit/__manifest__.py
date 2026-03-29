@@ -2,7 +2,7 @@
 # Módulo técnico de herramientas EDI Ecuador
 # Compatible con Odoo 17 Community + localización ecuatoriana TRESCLOUD
 {
-    'name': 'Herramientas EDI Ecuador (Toolkit)',
+    'name': 'Facturacion Electronica Ecuador ATS',
     'version': '17.0.1.0.0',
     'author': 'PJFlow.io',
     'website': 'https://pjflow.io',

@@ -1,5 +1,5 @@
 {
-    'name': 'Enriquecimiento de Productos con IA',
+    'name': 'Fotos y Descripciones de Productos con IA',
     'version': '17.0.1.0.0',
     'category': 'Inventory/Products',
     'summary': 'Enriquece automáticamente tus productos con imágenes profesionales y descripciones generadas por IA (GPT-4o + Google Images)',

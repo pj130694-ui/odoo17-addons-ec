@@ -1,5 +1,5 @@
 {
-    'name': 'Google Sheet Product Importer',
+    'name': 'Importar Productos Google Sheets Automatico',
     'version': '17.0.2.1.2',
     'author': 'PJFlow.io',
     'website': 'https://pjflow.io',

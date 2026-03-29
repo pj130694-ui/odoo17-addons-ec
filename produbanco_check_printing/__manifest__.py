@@ -1,5 +1,5 @@
 {
-    "name": "Produbanco Cheque Layout (account_check_printing)",
+    "name": "Imprimir Cheques Ecuador en Odoo",
     "version": "17.0.1.0.0",
     "author": "PJFlow.io",
     "website": "https://pjflow.io",

@@ -1,5 +1,5 @@
 {
-    'name': 'Ecuador SRI/RC - Validación y Autocompletado de Contactos',
+    'name': 'Consulta RUC y Cedula Ecuador',
     'version': '17.0.1.0.0',
     'category': 'Accounting/Localizations',
     'summary': 'Valida cédula/RUC y autocompleta datos del contacto consultando el SRI y Registro Civil',

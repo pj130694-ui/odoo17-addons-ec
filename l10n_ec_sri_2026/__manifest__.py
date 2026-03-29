@@ -1,5 +1,5 @@
 {
-    'name': 'Ecuador SRI - NAC-DGERCGC26-00000009',
+    'name': 'Nuevos Impuestos Ecuador 2026 Actualizados',
     'version': '17.0.1.0.0',
     'author': 'PJFlow.io',
     'website': 'https://pjflow.io',

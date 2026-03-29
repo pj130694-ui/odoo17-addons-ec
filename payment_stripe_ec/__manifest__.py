@@ -1,5 +1,5 @@
 {
-    'name': 'Stripe EC - Ecuador Country Bypass',
+    'name': 'Cobrar con Tarjeta mediante STRIPE en Ecuador',
     'version': '17.0.1.0.0',
     'author': 'PJFlow.io',
     'website': 'https://pjflow.io',

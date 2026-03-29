@@ -1,5 +1,5 @@
 {
-    'name': 'Binance Pay Payment Provider',
+    'name': 'Pagar con Crypto mediante Binance Pay en Odoo',
     'version': '17.0.1.0.0',
     'category': 'Accounting/Payment Providers',
     'summary': 'Accept cryptocurrency payments via Binance Pay',
